@@ -11,6 +11,10 @@ const unsigned int maxLedsPerStrip = 144;
 #define ENABLE_SD
 #endif
 
+#ifdef CONFIG_PROP
+#include "../props/saber_shtok_buttonsG.h"
+#endif
+
 #ifdef CONFIG_PRESETS
 Preset presets[] = {
    { "TeensySF", "tracks/venus.wav",
@@ -39,8 +43,8 @@ Preset presets[] = {
     StyleNormalPtr<BLUE, BLUE, 300, 800>(), "strobe"}
 };
 BladeConfig blades[] = {
- { 0, SimpleBladePtr<CreeXPE2RedTemplate<2000>, CreeXPE2GreenTemplate<0>, CreeXPE2BlueTemplate<200>, NoLED, bladePowerPin1, bladePowerPin2, bladePowerPin3, -1>(),
-    SimpleBladePtr<CreeXPE2BlueTemplate<82000>, NoLED, NoLED, NoLED, bladePowerPin6, -1, -1, -1>()
+ { 0, SimpleBladePtr<CreeXPE2RedTemplate<2000>, CreeXPE2GreenTemplate<100>, CreeXPE2BlueTemplate<200>, NoLED, bladePowerPin1, bladePowerPin2, bladePowerPin3, -1>(),
+    SimpleBladePtr<CreeXPE2BlueTemplate<18000>, NoLED, NoLED, NoLED, bladePowerPin6, -1, -1, -1>()
   , CONFIGARRAY(presets) },
 };
 #endif

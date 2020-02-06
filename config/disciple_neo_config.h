@@ -11,6 +11,10 @@ const unsigned int maxLedsPerStrip = 144;
 #define ENABLE_SD
 #endif
 
+#ifdef CONFIG_PROP
+#include "../props/saber_shtok_buttonsG.h"
+#endif
+
 #ifdef CONFIG_PRESETS
 Preset presets[] = {
    { "TeensySF", "tracks/venus.wav",
