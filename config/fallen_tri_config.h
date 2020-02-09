@@ -4,11 +4,12 @@
 #define NUM_BUTTONS 1
 #define VOLUME 1000
 const unsigned int maxLedsPerStrip = 144;
-#define CLASH_THRESHOLD_G 1.0
+#define CLASH_THRESHOLD_G 2.0
 #define ENABLE_AUDIO
 #define ENABLE_MOTION
 #define ENABLE_WS2811
 #define ENABLE_SD
+#define SAVE_STATE
 #endif
 
 #ifdef CONFIG_PROP
@@ -16,31 +17,29 @@ const unsigned int maxLedsPerStrip = 144;
 #endif
 
 #ifdef CONFIG_PRESETS
+
+#define mainColors ColorChange<TrFade<500>, Rgb<200, 200, 200>, Green, SpringGreen, Cyan, DeepSkyBlue, DodgerBlue, Blue, Violet, Indigo, Magenta, Red, Orange, Yellow>
+#define flickerColors ColorChange<TrFade<500>, Rgb<128, 128, 128>, Rgb<0, 128, 0>, SpringGreenDark, DeepSkyBlue, DeepSkyBlueDark, DodgerBlueDark, Rgb<0, 0, 128>, VioletDark, IndigoDark, MagentaDark, Rgb<128, 0, 0>, Tomato, Rgb<128, 128, 0>>
+
 Preset presets[] = {
    { "TeensySF", "tracks/venus.wav",
-    StyleNormalPtr<AudioFlicker<CYAN, DeepSkyBlue>, WHITE, 300, 800>(),
-    StyleNormalPtr<BLUE, BLUE, 300, 800>(), "cyan"},
+    StylePtr<InOutHelper<SimpleClash<Lockup<BlastFadeout<AudioFlicker<mainColors,flickerColors>, White>, RandomFlicker<mainColors,White>>, White, 40>, 300, 800, Black>>(),
+    StylePtr<InOutHelper<Blue, 300, 300, Pulsing<Blue, Black, 3000>>>(), "teensy"},
    { "SmthJedi", "tracks/mars.wav",
-    StylePtr<InOutSparkTip<EASYBLADE(BLUE, WHITE), 300, 800> >(),
-    StyleNormalPtr<BLUE, BLUE, 300, 800>(), "blue"},
+    StylePtr<InOutHelper<SimpleClash<Lockup<BlastFadeout<AudioFlicker<mainColors,flickerColors>, White>, RandomFlicker<mainColors,White>>, White, 40>, 300, 800, Black>>(),
+    StylePtr<InOutHelper<Blue, 300, 300, Pulsing<Blue, Black, 3000>>>(), "jedi"},
    { "SmthGrey", "tracks/mercury.wav",
-    StyleNormalPtr<RED, WHITE, 300, 800>(),
-    StyleNormalPtr<BLUE, BLUE, 300, 800>(), "red"},
+    StylePtr<InOutHelper<SimpleClash<Lockup<BlastFadeout<AudioFlicker<mainColors,flickerColors>, White>, RandomFlicker<mainColors,White>>, White, 40>, 300, 800, Black>>(),
+    StylePtr<InOutHelper<Blue, 300, 300, Pulsing<Blue, Black, 3000>>>(), "grey"},
+   { "TthCrstl", "tracks/venus.wav",
+    StylePtr<InOutHelper<SimpleClash<Lockup<BlastFadeout<AudioFlicker<mainColors,flickerColors>, White>, RandomFlicker<mainColors,White>>, White, 40>, 300, 800, Black>>(),
+    StylePtr<InOutHelper<Blue, 300, 300, Pulsing<Blue, Black, 3000>>>(), "luke"},
    { "SmthFuzz", "tracks/uranus.wav",
-    StylePtr<InOutHelper<EASYBLADE(OnSpark<GREEN>, WHITE), 300, 800> >(),
-    StyleNormalPtr<WHITE, WHITE, 300, 800>(), "green"},
+    StylePtr<InOutHelper<SimpleClash<Lockup<BlastFadeout<AudioFlicker<mainColors,flickerColors>, White>, RandomFlicker<mainColors,White>>, White, 40>, 300, 800, Black>>(),
+    StylePtr<InOutHelper<Blue, 300, 300, Pulsing<Blue, Black, 3000>>>(), "sith1"},
    { "RgueCmdr", "tracks/venus.wav",
-    StyleNormalPtr<WHITE, RED, 300, 800, RED>(),
-    StyleNormalPtr<BLUE, BLUE, 300, 800>(), "white"},
-   { "TthCrstl", "tracks/mars.wav",
-    StyleNormalPtr<AudioFlicker<YELLOW, WHITE>, BLUE, 300, 800>(),
-    StyleNormalPtr<BLUE, BLUE, 300, 800>(), "yellow"},
-   { "TeensySF", "tracks/mercury.wav",
-    StylePtr<InOutSparkTip<EASYBLADE(MAGENTA, WHITE), 300, 800> >(),
-    StyleNormalPtr<BLUE, BLUE, 300, 800>(), "magenta"},
-   { "SmthJedi", "tracks/uranus.wav",
-    StyleStrobePtr<WHITE, Rainbow, 15, 300, 800>(),
-    StyleNormalPtr<BLUE, BLUE, 300, 800>(), "strobe"}
+    StylePtr<InOutHelper<SimpleClash<Lockup<BlastFadeout<AudioFlicker<mainColors,flickerColors>, White>, RandomFlicker<mainColors,White>>, White, 40>, 300, 800, Black>>(),
+    StylePtr<InOutHelper<Blue, 300, 300, Pulsing<Blue, Black, 3000>>>(), "sith2"}
 };
 BladeConfig blades[] = {
  { 0, SimpleBladePtr<CreeXPE2RedTemplate<2000>, CreeXPE2GreenTemplate<100>, CreeXPE2BlueTemplate<200>, NoLED, bladePowerPin1, bladePowerPin2, bladePowerPin3, -1>(),
