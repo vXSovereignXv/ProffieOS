@@ -41,8 +41,42 @@ Preset presets[] = {
     StylePtr<InOutHelper<SimpleClash<Lockup<BlastFadeout<AudioFlicker<mainColors,flickerColors>, White>, RandomFlicker<mainColors,White>>, White, 40>, 300, 800, Black>>(),
     StylePtr<InOutHelper<Blue, 300, 300, Pulsing<Blue, Black, 3000>>>(), "sith2"}
 };
+
+struct MyCreeXPE2Blue {
+  static constexpr float MaxAmps = 1.0;
+  static constexpr float MaxVolts = 3.5;
+  static constexpr float P2Amps = 0.35;
+  static constexpr float P2Volts = 3.2;
+  static constexpr float R = 0.2;
+  static const int Red = 0;
+  static const int Green = 0;
+  static const int Blue = 255;
+};
+
+struct MyCreeXPE2Green {
+  static constexpr float MaxAmps = 1.0;
+  static constexpr float MaxVolts = 3.8;
+  static constexpr float P2Amps = 0.35;
+  static constexpr float P2Volts = 3.4;
+  static constexpr float R = 0.1;
+  static const int Red = 0;
+  static const int Green = 255;
+  static const int Blue = 0;
+};
+
+struct MyCreeXPE2Red {
+  static constexpr float MaxAmps = 0.7;
+  static constexpr float MaxVolts = 2.3;
+  static constexpr float P2Amps = 0.35;
+  static constexpr float P2Volts = 2.5;
+  static constexpr float R = 2.0;
+  static const int Red = 255;
+  static const int Green = 0;
+  static const int Blue = 0;
+};
+
 BladeConfig blades[] = {
- { 0, SimpleBladePtr<CreeXPE2RedTemplate<2000>, CreeXPE2GreenTemplate<100>, CreeXPE2BlueTemplate<200>, NoLED, bladePowerPin1, bladePowerPin2, bladePowerPin3, -1>(),
+ { 0, SimpleBladePtr<MyCreeXPE2Red, MyCreeXPE2Green, MyCreeXPE2Blue, NoLED, bladePowerPin1, bladePowerPin2, bladePowerPin3, -1>(),
     SimpleBladePtr<CreeXPE2BlueTemplate<18000>, NoLED, NoLED, NoLED, bladePowerPin6, -1, -1, -1>()
   , CONFIGARRAY(presets) },
 };
