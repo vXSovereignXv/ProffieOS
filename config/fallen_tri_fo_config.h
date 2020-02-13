@@ -21,7 +21,9 @@ const unsigned int maxLedsPerStrip = 144;
 #define buttonPulse InOutHelper<Blue, 300, 300, Pulsing<Blue, Black, 3000>>
 #define mainColors ColorChange<TrFade<500>, Rgb<200, 200, 200>, Green, SpringGreen, Cyan, DeepSkyBlue, DodgerBlue, Blue, Violet, Indigo, Magenta, Red, Orange, Yellow>
 #define flickerColors ColorChange<TrFade<500>, Rgb<128, 128, 128>, Rgb<0, 128, 0>, SpringGreenDark, DeepSkyBlue, DeepSkyBlueDark, DodgerBlueDark, Rgb<0, 0, 128>, VioletDark, IndigoDark, MagentaDark, Rgb<128, 0, 0>, Tomato, Rgb<128, 128, 0>>
+#define unstableFlickerColors ColorChange<TrFade<500>, Rgb<50, 50, 650>, Rgb<0, 50, 0>, Rgb<0, 64, 14>, Rgb<0, 64, 14>, Rgb<0, 34, 64>, Rgb<0, 18, 64>, Rgb<0, 0, 128>, Rgb<34, 5, 56>, Rgb<30,5,85>, Rgb<50, 0, 50>, Rgb<50, 0, 0>, Rgb<50, 19, 0>, Rgb<50, 50, 0>>
 #define mainBladeStyle InOutHelper<OnSpark<SimpleClash<Lockup<BlastFadeout<AudioFlicker<mainColors,flickerColors>, White>, RandomFlicker<mainColors,White>>, White, 40>, White, 500>, 300, 800, Black>
+#define unstableStyle InOutHelper<OnSpark<SimpleClash<Lockup<Blast<BrownNoiseFlicker<mainColors, unstableFlickerColors, 50>, White>, RandomFlicker<mainColors, White>>, White>, White, 300>, 300, 800, Black>
 
 Preset presets[] = {
   { "FOBlue", "tracks/JFO1.wav",
@@ -60,6 +62,14 @@ Preset presets[] = {
     StylePtr<mainBladeStyle>(),
     StylePtr<buttonPulse>(), "FOYellow"
   },
+  { "FOSister", "tracks/JF12.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<buttonPulse>(), "FOSister"
+  },
+  { "Unstable", "tracks/KyloTheme.wav",
+    StylePtr<unstableStyle>(),
+    StylePtr<buttonPulse>(), "Unstable"
+  }
 };
 
 struct MyCreeXPE2Blue {
