@@ -11,9 +11,9 @@
 // Force Effects - twist the hilt + press and hold the button while ON (while pointing up)
 // Enter Color Change mode - twist the hilt + press and hold the button while ON (pointing down)
 // Confirm selected color in Color Change mode - hold the button until confirmation sound
-// Volume UP - hold 1 second and release while OFF and in VOLUME MENU
-// Volume Down - hold until confirmation sound while OFF and in VOLUME MENU
-// Volume Menu - Twist while off to enter menu and twist again to exit
+// Volume UP - single click button while OFF and in VOLUME MENU
+// Volume Down - hold button 1 second and release while OFF and in VOLUME MENU
+// Volume Menu - Twist while off to enter menu and twist again to exit (can also hold button to exit)
 //
 // 2 Buttons:
 // Activate Muted - fast double click Activation button while OFF
@@ -50,7 +50,9 @@ public:
       if (dynamic_mixer.get_volume() < VOLUME) {
         dynamic_mixer.set_volume(std::min<int>(VOLUME + VOLUME * 0.1,
           dynamic_mixer.get_volume() + VOLUME * 0.10));
-        beeper.Beep(0.2, 2000.0);
+        if (!hybrid_font.PlayPolyphonic(&SFX_mselect)) {
+          beeper.Beep(0.2, 2000.0);
+        }
         STDOUT.print("Current Volume: ");
         STDOUT.println(dynamic_mixer.get_volume());
       }
@@ -62,12 +64,35 @@ public:
       if (dynamic_mixer.get_volume() > (0.10 * VOLUME)) {
         dynamic_mixer.set_volume(std::max<int>(VOLUME * 0.1,
           dynamic_mixer.get_volume() - VOLUME * 0.10));
-        beeper.Beep(0.2, 2000.0);
+        if (!hybrid_font.PlayPolyphonic(&SFX_mselect)) {
+          beeper.Beep(0.2, 2000.0);
+        }
         STDOUT.print("Current Volume: ");
         STDOUT.println(dynamic_mixer.get_volume());
       }
       else{
         beeper.Beep(0.2, 1000);
+      }
+    }
+  }
+
+  void ToggleVolumeMenu() {
+    if (mode_volume_) {
+      mode_volume_ = false;
+      if (!hybrid_font.PlayPolyphonic(&SFX_menter)) {
+        beeper.Beep(0.20, 2000.0);
+        beeper.Beep(0.20, 1414.2);
+        beeper.Beep(0.20, 1000.0);
+        STDOUT.println("Exit Volume Menu");
+      }
+    }
+    else {
+      mode_volume_ = true;
+      if (!hybrid_font.PlayPolyphonic(&SFX_mexit)) {
+        beeper.Beep(0.20, 1000.0);
+        beeper.Beep(0.20, 1414.2);
+        beeper.Beep(0.20, 2000.0);
+        STDOUT.println("Enter Volume Menu");
       }
     }
   }
@@ -98,6 +123,9 @@ public:
           mode_volume_ = false;
           On();
         }
+        else {
+          ChangeVolume(true);
+        }
 	return true;
 
 // Next Preset
@@ -107,7 +135,7 @@ public:
         On();
 #else
         if (mode_volume_) {
-          ChangeVolume(true);
+          ChangeVolume(false);
         }
         else {
           next_preset();
@@ -121,31 +149,18 @@ public:
         aux_on_ = true;
         On();
 #else
-        if (mode_volume_) {
-          ChangeVolume(false);
+        if (!mode_volume_) {
+          previous_preset();
         }
         else {
-          previous_preset();
+          ToggleVolumeMenu();
         }
 #endif
 	return true;
 
 // Enter Volume Menu
       case EVENTID(BUTTON_NONE, EVENT_TWIST, MODE_OFF):
-        if (mode_volume_) {
-          mode_volume_ = false;
-          beeper.Beep(0.20, 2000.0);
-          beeper.Beep(0.20, 1414.2);
-          beeper.Beep(0.20, 1000.0);
-          STDOUT.println("Exit Volume Menu");
-        }
-        else {
-          mode_volume_ = true;
-          beeper.Beep(0.20, 1000.0);
-          beeper.Beep(0.20, 1414.2);
-          beeper.Beep(0.20, 2000.0);
-          STDOUT.println("Enter Volume Menu");
-        }
+        ToggleVolumeMenu();
 	return true;
 
 // Activate Muted
