@@ -378,21 +378,21 @@ public:
   void SB_Change(SaberBase::ChangeType change) override {
     switch (change) {
       case SaberBase::ENTER_COLOR_CHANGE:
-        if (!PlayPolyphonic(&SFX_ccbegin) && !PlayPolyphonic(&SFX_color)) {
+        if (!PlayPolyphonic(&SFX_ccbegin) && !PlayPolyphonic(&SFX_color) && !PlayPolyphonic(&SFX_menter)) {
           beeper.Beep(0.20, 1000.0);
           beeper.Beep(0.20, 1414.2);
           beeper.Beep(0.20, 2000.0);
         }
         break;
       case SaberBase::EXIT_COLOR_CHANGE:
-        if (!PlayPolyphonic(&SFX_ccend)) {
+        if (!PlayPolyphonic(&SFX_ccend) && !PlayPolyphonic(&SFX_mexit)) {
           beeper.Beep(0.20, 2000.0);
           beeper.Beep(0.20, 1414.2);
           beeper.Beep(0.20, 1000.0);
         }
         break;
       case SaberBase::CHANGE_COLOR:
-        if (!PlayPolyphonic(&SFX_ccchange)) {
+        if (!PlayPolyphonic(&SFX_ccchange) && !PlayPolyphonic(&SFX_mselect)) {
           beeper.Beep(0.05, 2000.0);
         }
         break;

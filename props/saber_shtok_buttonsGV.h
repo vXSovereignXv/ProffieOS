@@ -1,7 +1,7 @@
 // 1 Button:
 // Activate Muted - fast double click while OFF
 // Activate blade - short click while OFF or stab gesture while OFF
-// Play/Stop Music - hold 1 second and release while ON
+// Play/Stop Music - hold 1 second and release while ON or shake while off
 // Turn the blade off - hold and wait till blade is off while ON (like in Plecter boards) or twist gesture while ON
 // Next Preset - hold 1 second and release while OFF
 // Previous Preset - hold and wait while OFF
@@ -221,6 +221,7 @@ public:
         break;
 
 // Start or Stop Track
+      case EVENTID(BUTTON_NONE, EVENT_SHAKE, MODE_OFF):
       case EVENTID(BUTTON_POWER, EVENT_CLICK_LONG, MODE_ON):
         StartOrStopTrack();
 	return true;
