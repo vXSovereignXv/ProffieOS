@@ -87,6 +87,14 @@ Preset presets[] = {
   { "Luke_RoTJ", "Luke_RoTJ/tracks/Final_Duel.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<buttonPulse>(), "Luke_RoTJ"
+  },
+  { "ClassicVillian", "Luke_ESB/tracks/LvsV.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<buttonPulse>(), "ClassicVillian"
+  },
+  { "Scavengers_Destiny", "Scavengers_Destiny/tracks/track4.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<buttonPulse>(), "Scavengers_Destiny"
   }
 };
 
