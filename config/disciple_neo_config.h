@@ -2,7 +2,7 @@
 #include "proffieboard_v2_config.h"
 #define NUM_BLADES 3
 #define NUM_BUTTONS 1
-#define VOLUME 1500
+#define VOLUME 2000
 const unsigned int maxLedsPerStrip = 193;
 #define CLASH_THRESHOLD_G 2.0
 #define ENABLE_AUDIO
@@ -116,11 +116,11 @@ Preset chassis[] = {
 };
 
 BladeConfig blades[] = {
- { 0, WS281XBladePtr<144, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
+ { 0, WS281XBladePtr<123, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
     WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
     SimpleBladePtr<CreeXPE2BlueTemplate<18000>, NoLED, NoLED, NoLED, bladePowerPin6, -1, -1, -1>()
   , CONFIGARRAY(blade) },
-  // { TBD, WS281XBladePtr<20, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
+  // { TBD, WS281XBladePtr<21, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
   //   WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
   //   SimpleBladePtr<CreeXPE2BlueTemplate<18000>, NoLED, NoLED, NoLED, bladePowerPin6, -1, -1, -1>()
   // , CONFIGARRAY(blade) }, //Short Blade
@@ -130,7 +130,7 @@ BladeConfig blades[] = {
   // , CONFIGARRAY(blade) }, //Blade Plug
 
   //TODO: No Blade settings
-  //{ NO_BLADE, WS281XBladePtr<144, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>(), 
+  //{ NO_BLADE, WS281XBladePtr<123, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>(), 
   //   WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
   //   SimpleBladePtr<CreeXPE2BlueTemplate<18000>, NoLED, NoLED, NoLED, bladePowerPin6, -1, -1, -1>()
   // , CONFIGARRAY(chassis) }, //Blade Plug

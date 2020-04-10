@@ -95,6 +95,10 @@ Preset presets[] = {
   { "Scavengers_Destiny", "Scavengers_Destiny/tracks/track4.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<buttonPulse>(), "Scavengers_Destiny"
+  },
+  { "Showcase", "Showcase/tracks/showcase.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<buttonPulse>(), "Showcase"
   }
 };
 
