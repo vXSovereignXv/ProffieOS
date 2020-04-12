@@ -15,7 +15,7 @@
 // Volume Down - hold button 1 second and release while OFF and in VOLUME MENU
 // Volume Menu - Twist while off to enter menu and twist again to exit (can also hold button to exit)
 //
-// 2 Buttons:
+// 2 Buttons: TODO
 // Activate Muted - fast double click Activation button while OFF
 // Activate blade - short click Activation button while OFF or stab gesture while OFF
 // Play/Stop Music - hold 1 second and release Activation button while OFF or ON
@@ -28,21 +28,36 @@
 // Force Effects - short click Activation button while ON
 // Enter Color Change mode - hold AUX and click Activation button while ON
 // Confirm selected color in Color Change mode - hold the button until confirmation sound
+//
+// 3 Buttons: TODO
+// Activate Muted - fast double click Activation button while OFF
+// Activate blade - short click Activation button while OFF or stab gesture while OFF
+// Play/Stop Music - hold 1 second and release Activation button while OFF or ON
+// Turn the blade off - hold and wait till blade is off while ON (like in Plecter boards) or twist gesture while ON
+// Next Preset - short click AUX button while OFF
+// Previous Preset - hold AUX and click Activation button while OFF
+// Lockup - hold AUX button while ON (like in Plecter boards)
+// Drag - hold AUX button while ON pointing the blade tip down
+// Blaster Blocks - short click AUX button while ON
+// Force Effects - short click Activation button while ON
+// Enter Color Change mode - hold AUX and click Activation button while ON
+// Confirm selected color in Color Change mode - hold the button until confirmation sound
+//
 
-#ifndef PROPS_SABER_SHTOK_BUTTONS_H
-#define PROPS_SABER_SHTOK_BUTTONS_H
+#ifndef PROPS_SABER_DAIGLE_BUTTONS_H
+#define PROPS_SABER_DAIGLE_BUTTONS_H
 
 #include "prop_base.h"
 
 #undef PROP_TYPE
-#define PROP_TYPE SaberShtokButtons
+#define PROP_TYPE SaberDaigleButtons
 
 // The Saber class implements the basic states and actions
 // for the saber.
-class SaberShtokButtons : public PropBase {
+class SaberDaigleButtons : public PropBase {
 public:
-  SaberShtokButtons() : PropBase() {}
-  const char* name() override { return "SaberShtokButtons"; }
+  SaberDaigleButtons() : PropBase() {}
+  const char* name() override { return "SaberDaigleButtons"; }
 
   void ChangeVolume(bool up) {
     if (up) {
