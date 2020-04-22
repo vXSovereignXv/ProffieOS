@@ -14,8 +14,9 @@
 // Volume UP - single click button while OFF and in VOLUME MENU
 // Volume Down - hold button 1 second and release while OFF and in VOLUME MENU
 // Volume Menu - Twist while off to enter menu and twist again to exit (can also hold button to exit)
+// Melt - hold while stabbing (clash with forward motion, horizontal)
 //
-// 2 Buttons: TODO
+// 2 Buttons:
 // Activate Muted - fast double click Activation button while OFF
 // Activate blade - short click Activation button while OFF or stab gesture while OFF
 // Play/Stop Music - hold 1 second and release Activation button while OFF or ON
@@ -25,14 +26,17 @@
 // Lockup - hold AUX button while ON (like in Plecter boards)
 // Drag - hold AUX button while ON pointing the blade tip down
 // Blaster Blocks - short click AUX button while ON
-// Force Effects - short click Activation button while ON
+// Force Effects - double click Activation button while ON
 // Enter Color Change mode - hold AUX and click Activation button while ON
 // Confirm selected color in Color Change mode - hold the button until confirmation sound
 // Volume UP - single click power button while OFF and in VOLUME MENU
 // Volume Down - single click aux button while OFF and in VOLUME MENU
-// Volume Menu - Twist while off to enter menu and twist again to exit (can also hold power button to exit)
+// Volume Menu - Hold Aux while off, do the same to exit. (can also click power button to exit)
+// Melt - hold power while stabbing (clash with forward motion, horizontal)
+// Lightning Block - hold power + CLASH when ON
+// Battery level - hold power while off
 //
-// 3 Buttons: TODO
+// 3 Buttons:
 // Activate Muted - fast double click Activation button while OFF
 // Activate blade - short click Activation button while OFF or stab gesture while OFF
 // Play/Stop Music - hold 1 second and release Activation button while OFF or ON
@@ -42,12 +46,15 @@
 // Lockup - hold AUX button while ON (like in Plecter boards)
 // Drag - hold AUX button while ON pointing the blade tip down
 // Blaster Blocks - short click AUX button while ON
-// Force Effects - short click Activation button while ON
+// Force Effects - double click Activation button while ON
 // Enter Color Change mode - hold AUX and click Activation button while ON
 // Confirm selected color in Color Change mode - hold the button until confirmation sound
 // Volume UP - single click aux button while OFF and in VOLUME MENU
 // Volume Down - single click aux2 button while OFF and in VOLUME MENU
-// Volume Menu - Hold AUX 2 and click Power Button while off, do the same to exit (can also click power button to exit)
+// Volume Menu - Hold Aux1 while off, do the same to exit. (can also click power button to exit)
+// Melt - hold power while stabbing (clash with forward motion, horizontal)
+// Lightning Block - hold AUX2 when ON
+// Battery level - hold power while off
 //
 
 #ifndef PROPS_SABER_DAIGLE_BUTTONS_H
@@ -118,6 +125,14 @@ public:
     }
   }
 
+  void BatteryLevel() {
+    talkie.SayDigit((int)floorf(battery_monitor.battery()));
+    talkie.Say(spPOINT);
+    talkie.SayDigit(((int)floorf(battery_monitor.battery() * 10)) % 10);
+    talkie.SayDigit(((int)floorf(battery_monitor.battery() * 100)) % 10);
+    talkie.Say(spVOLTS);
+  }
+
   bool Event2(enum BUTTON button, EVENT event, uint32_t modifiers) override {
     switch (EVENTID(button, event, modifiers)) {
       case EVENTID(BUTTON_POWER, EVENT_PRESSED, MODE_ON):
@@ -146,6 +161,14 @@ public:
         SaberBase::DoBladeDetect(false);
         return true;
   #endif
+
+      case EVENTID(BUTTON_NONE, EVENT_STAB, MODE_ON | BUTTON_POWER):
+        if (!SaberBase::Lockup()) {          
+          SaberBase::SetLockup(SaberBase::LOCKUP_MELT);
+          SaberBase::DoBeginLockup();
+          return true;
+        }
+        break;
 
 // 1-button code
 
@@ -289,6 +312,12 @@ public:
         }
 	return true;
 
+// Lightning Block
+      case EVENTID(BUTTON_NONE, EVENT_CLASH, MODE_ON | BUTTON_POWER):
+      SaberBase::SetLockup(SaberBase::LOCKUP_LIGHTNING_BLOCK);
+	    SaberBase::DoBeginLockup();
+  return true;
+
 // Next Preset
       case EVENTID(BUTTON_AUX, EVENT_CLICK_SHORT, MODE_OFF):
 #ifdef DUAL_POWER_BUTTONS
@@ -315,9 +344,12 @@ public:
         if (mode_volume_) {
           ToggleVolumeMenu();
         }
+        else {
+          BatteryLevel();
+        }
 	return true;
 // Enter Volume Menu
-      case EVENTID(BUTTON_NONE, EVENT_TWIST, MODE_OFF):
+      case EVENTID(BUTTON_AUX, EVENT_CLICK_LONG, MODE_OFF):
         ToggleVolumeMenu();
 	return true;
 
@@ -328,6 +360,9 @@ public:
 	    unmute_on_deactivation_ = true;
 	  }
 	}
+  else {
+    SaberBase::DoForce();
+  }
 	return true;
 
 // Turn Blade OFF	
@@ -348,16 +383,18 @@ public:
     }
         return true;
 
-// Force
-      case EVENTID(BUTTON_POWER, EVENT_CLICK_SHORT, MODE_ON):
-        SaberBase::DoForce();
-	return true;
-
 // Color Change mode
 #ifndef DISABLE_COLOR_CHANGE
       case EVENTID(BUTTON_POWER, EVENT_CLICK_SHORT, MODE_ON | BUTTON_AUX):
 	ToggleColorChangeMode();
 	break;
+      case EVENTID(BUTTON_POWER, EVENT_CLICK_SHORT, MODE_ON):
+          if (SaberBase::GetColorChangeMode() != SaberBase::COLOR_CHANGE_MODE_NONE) {
+            // Just exit color change mode.
+            ToggleColorChangeMode();
+            return true;
+          }
+  break;
 #endif
 
 // Blaster Deflection
@@ -398,9 +435,9 @@ public:
       case EVENTID(BUTTON_POWER, EVENT_CLICK_SHORT, MODE_OFF | BUTTON_AUX):
         previous_preset();
 	return true;
-#elif NUM_BUTTONS == 3 //TODO: 3 button setup
+#elif NUM_BUTTONS == 3
 // Enter Volume Menu
-      case EVENTID(BUTTON_POWER, EVENT_CLICK_SHORT, MODE_OFF | BUTTON_AUX2):
+      case EVENTID(BUTTON_AUX, EVENT_CLICK_LONG, MODE_OFF):
         ToggleVolumeMenu();
 	return true;
 
@@ -419,6 +456,13 @@ public:
           ToggleVolumeMenu();
         }
 	return true;
+
+// Lightning Block
+      case EVENTID(BUTTON_AUX2, EVENT_HELD, MODE_ON):
+      SaberBase::SetLockup(SaberBase::LOCKUP_LIGHTNING_BLOCK);
+	    SaberBase::DoBeginLockup();
+  return true;
+
 
 // Next Preset
       case EVENTID(BUTTON_AUX, EVENT_CLICK_SHORT, MODE_OFF):
@@ -448,12 +492,18 @@ public:
 	    unmute_on_deactivation_ = true;
 	  }
 	}
+  else {
+    SaberBase::DoForce();
+  }
 	return true;
 
 // Alternate volume menu exit
       case EVENTID(BUTTON_POWER, EVENT_HELD_LONG, MODE_OFF):
         if (mode_volume_) {
           ToggleVolumeMenu();
+        }
+        else {
+          BatteryLevel();
         }
 	return true;
 
@@ -475,16 +525,18 @@ public:
     }
         return true;
 
-// Force
-      case EVENTID(BUTTON_POWER, EVENT_CLICK_SHORT, MODE_ON):
-        SaberBase::DoForce();
-	return true;
-
 // Color Change mode
 #ifndef DISABLE_COLOR_CHANGE
       case EVENTID(BUTTON_POWER, EVENT_CLICK_SHORT, MODE_ON | BUTTON_AUX):
 	ToggleColorChangeMode();
 	break;
+      case EVENTID(BUTTON_POWER, EVENT_CLICK_SHORT, MODE_ON):
+          if (SaberBase::GetColorChangeMode() != SaberBase::COLOR_CHANGE_MODE_NONE) {
+            // Just exit color change mode.
+            ToggleColorChangeMode();
+            return true;
+          }
+  break;
 #endif
 
 // Blaster Deflection
@@ -553,6 +605,7 @@ public:
 // Events that needs to be handled regardless of what other buttons are pressed.
       case EVENTID(BUTTON_POWER, EVENT_RELEASED, MODE_ANY_BUTTON | MODE_ON):
       case EVENTID(BUTTON_AUX, EVENT_RELEASED, MODE_ANY_BUTTON | MODE_ON):
+      case EVENTID(BUTTON_AUX2, EVENT_RELEASED, MODE_ANY_BUTTON | MODE_ON):
 	if (SaberBase::Lockup()) {
 	  SaberBase::DoEndLockup();
 	  SaberBase::SetLockup(SaberBase::LOCKUP_NONE);
