@@ -89,8 +89,8 @@ public:
       }
     } else {
       STDOUT.println("Volume Down");
-      if (dynamic_mixer.get_volume() > (0.10 * VOLUME)) {
-        dynamic_mixer.set_volume(std::max<int>(VOLUME * 0.1,
+      if (dynamic_mixer.get_volume() > (0.0 * VOLUME)) {
+        dynamic_mixer.set_volume(std::max<int>(VOLUME * 0.0,
           dynamic_mixer.get_volume() - VOLUME * 0.10));
         if (!hybrid_font.PlayPolyphonic(&SFX_mselect)) {
           beeper.Beep(0.2, 2000.0);
