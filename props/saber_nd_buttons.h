@@ -2,7 +2,7 @@
 // Activate Muted - fast double click while OFF
 // Activate blade - short click while OFF or stab gesture while OFF
 // Play/Stop Music - hold 1 second and release while ON or shake while off
-// Turn the blade off - hold and wait till blade is off while ON (like in Plecter boards) or twist gesture while ON
+// Turn the blade off - twist gesture while ON (button hold turns on lightning block now)
 // Next Preset - hold 1 second and release while OFF
 // Previous Preset - hold and wait while OFF
 // Lockup - hold + hit clash while ON
@@ -15,6 +15,7 @@
 // Volume Down - hold button 1 second and release while OFF and in VOLUME MENU
 // Volume Menu - Twist while off to enter menu and twist again to exit (can also hold button to exit)
 // Melt - hold while stabbing (clash with forward motion, horizontal)
+// Lightning Block - hold power when ON
 //
 // 2 Buttons:
 // Activate Muted - fast double click Activation button while OFF
@@ -235,20 +236,28 @@ public:
 	return true;
 
 // Turn Blade OFF	
-      case EVENTID(BUTTON_POWER, EVENT_HELD_LONG, MODE_ON):
       case EVENTID(BUTTON_NONE, EVENT_TWIST, MODE_ON):
     if (!SaberBase::Lockup()) {
-#ifndef DISABLE_COLOR_CHANGE
-          if (SaberBase::GetColorChangeMode() != SaberBase::COLOR_CHANGE_MODE_NONE) {
-            // Just exit color change mode.
-            // Don't turn saber off.
-            ToggleColorChangeMode();
-            return true;
-          }
-#endif
       Off();
     }
         return true;
+
+// Lightning Block
+      case EVENTID(BUTTON_POWER, EVENT_HELD_LONG, MODE_ON):
+    if (!SaberBase::Lockup()) {
+#ifndef DISABLE_COLOR_CHANGE
+      if (SaberBase::GetColorChangeMode() != SaberBase::COLOR_CHANGE_MODE_NONE) {
+        // Just exit color change mode.
+        // Don't turn saber off.
+        ToggleColorChangeMode();
+        return true;
+      }
+
+      SaberBase::SetLockup(SaberBase::LOCKUP_LIGHTNING_BLOCK);
+	    SaberBase::DoBeginLockup();
+#endif
+    }
+  return true;
 
 // Force and Color Change mode
       case EVENTID(BUTTON_NONE, EVENT_TWIST, MODE_ON | BUTTON_POWER):
