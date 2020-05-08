@@ -73,6 +73,19 @@ public:
   SaberDaigleButtons() : PropBase() {}
   const char* name() override { return "SaberDaigleButtons"; }
 
+  // EVENT_SWING
+  bool swinging_ = false;
+  void Loop() override {
+    PropBase::Loop();
+    if (!swinging_ && fusor.swing_speed() > 250) {
+      swinging_ = true;
+      Event(BUTTON_NONE, EVENT_SWING);
+    }
+    if (swinging_ && fusor.swing_speed() < 100) {
+      swinging_ = false;
+    }
+  }
+
   void ChangeVolume(bool up) {
     if (up) {
       STDOUT.println("Volume up");
@@ -166,10 +179,17 @@ public:
       case EVENTID(BUTTON_NONE, EVENT_STAB, MODE_ON | BUTTON_POWER):
         if (!SaberBase::Lockup()) {          
           SaberBase::SetLockup(SaberBase::LOCKUP_MELT);
+          swing_blast_ = false;
           SaberBase::DoBeginLockup();
-          return true;
+  return true;
         }
-        break;
+  break;
+
+      case EVENTID(BUTTON_NONE, EVENT_SWING, MODE_ON):
+        if (swing_blast_) {
+          SaberBase::DoBlast();
+        }
+	return true;
 
 // 1-button code
 
@@ -324,6 +344,7 @@ public:
 // Lightning Block
       case EVENTID(BUTTON_NONE, EVENT_CLASH, MODE_ON | BUTTON_POWER):
       SaberBase::SetLockup(SaberBase::LOCKUP_LIGHTNING_BLOCK);
+      swing_blast_ = false;
 	    SaberBase::DoBeginLockup();
   return true;
 
@@ -388,7 +409,10 @@ public:
             return true;
           }
 #endif
-      Off();
+        if (!swinging_) {
+          swing_blast_ = false;
+          Off();
+        }
     }
         return true;
 
@@ -408,8 +432,15 @@ public:
 
 // Blaster Deflection
       case EVENTID(BUTTON_AUX, EVENT_CLICK_SHORT, MODE_ON):
+        swing_blast_ = false;
         SaberBase::DoBlast();
 	return true;
+
+// Multiblast
+case EVENTID(BUTTON_AUX2, EVENT_CLICK_LONG, MODE_ON):
+        swing_blast_ = true;
+        hybrid_font.SB_Blast();
+  return true;
 
 // Lockup
       case EVENTID(BUTTON_AUX, EVENT_HELD, MODE_ON):
@@ -420,6 +451,7 @@ public:
           } else {
             SaberBase::SetLockup(SaberBase::LOCKUP_NORMAL);
           }
+          swing_blast_ = false;
           SaberBase::DoBeginLockup();
 	  return true;
         }
@@ -469,6 +501,7 @@ public:
 // Lightning Block
       case EVENTID(BUTTON_AUX2, EVENT_HELD, MODE_ON):
       SaberBase::SetLockup(SaberBase::LOCKUP_LIGHTNING_BLOCK);
+      swing_blast_ = false;
 	    SaberBase::DoBeginLockup();
   return true;
 
@@ -530,7 +563,10 @@ public:
             return true;
           }
 #endif
-      Off();
+      if (!swinging_) {
+        swing_blast_ = false;
+        Off();
+      }
     }
         return true;
 
@@ -550,8 +586,21 @@ public:
 
 // Blaster Deflection
       case EVENTID(BUTTON_AUX, EVENT_CLICK_SHORT, MODE_ON):
+        swing_blast_ = false;
         SaberBase::DoBlast();
 	return true;
+
+// Multiblast
+case EVENTID(BUTTON_AUX2, EVENT_CLICK_SHORT, MODE_ON):
+      if(!swing_blast_) {
+        swing_blast_ = true;
+        hybrid_font.SB_Blast();
+      }
+      else {
+        swing_blast_ = false;
+        SaberBase::DoBlast();
+      }
+  return true;
 
 // Lockup
       case EVENTID(BUTTON_AUX, EVENT_HELD, MODE_ON):
@@ -562,6 +611,7 @@ public:
           } else {
             SaberBase::SetLockup(SaberBase::LOCKUP_NORMAL);
           }
+          swing_blast_ = false;
           SaberBase::DoBeginLockup();
 	  return true;
         }
@@ -627,6 +677,7 @@ private:
   bool aux_on_ = true;
   bool pointing_down_ = false;
   bool mode_volume_ = false;
+  bool swing_blast_ = false;
 };
 
 #endif
