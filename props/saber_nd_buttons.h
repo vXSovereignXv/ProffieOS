@@ -36,6 +36,7 @@
 // Melt - hold power while stabbing (clash with forward motion, horizontal)
 // Lightning Block - hold power + CLASH when ON
 // Battery level - hold power while off
+// Multi-Blast Mode - hold and release AUX while ON to enter mode, Swing to initiate Blasts, click Aux to exit mode
 //
 // 3 Buttons:
 // Activate Muted - fast double click Activation button while OFF
@@ -56,6 +57,7 @@
 // Melt - hold power while stabbing (clash with forward motion, horizontal)
 // Lightning Block - hold AUX2 when ON
 // Battery level - hold power while off
+// Multi-Blast Mode - click AUX2 while ON to enter mode, Swing to initiate Blasts, click Aux or Aux2 to exit mode
 //
 
 #ifndef PROPS_SABER_DAIGLE_BUTTONS_H
