@@ -78,7 +78,7 @@ Preset blade[] = {
   },
   { "Scavengers_Destiny", "Scavengers_Destiny/tracks/track4.wav",
     StylePtr<reyDefault>(),
-    StylePtr<reyDefault>(), "Scavengers_Destiny"
+    StylePtr<chassisOff>(), "Scavengers_Destiny"
   },
   { "Senate Majority", "Senate Majority/tracks/Palpatheme.wav",
     StylePtr<senateMajority>(),
