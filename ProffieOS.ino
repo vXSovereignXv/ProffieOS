@@ -188,6 +188,7 @@ SnoozeBlock snooze_config(snooze_touch, snooze_digital, snooze_timer);
 #endif
 
 const char version[] = "$Id: ce12a06a1e236b5101ec60c950530a9a4719a74d $";
+const char install_time[] = __DATE__ " " __TIME__;
 
 #include "common/state_machine.h"
 #include "common/monitoring.h"
@@ -1020,6 +1021,8 @@ class Commands : public CommandParser {
 
     if (!strcmp(cmd, "version")) {
       STDOUT.println(version);
+      STDOUT.print("Installed: ");
+      STDOUT.println(install_time);
       return true;
     }
     if (!strcmp(cmd, "reset")) {
