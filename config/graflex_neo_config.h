@@ -14,6 +14,7 @@ const unsigned int maxLedsPerStrip = 193;
 #define ENABLE_POWER_FOR_ID PowerPINS<bladePowerPin2, bladePowerPin3>
 #define BLADE_DETECT_PIN 8
 #define IDLE_OFF_TIME 60 * 5 * 1000 //5 minutes
+#define KEEP_SAVEFILES_WHEN_PROGRAMMING
 #endif
 
 #ifdef CONFIG_PROP
@@ -223,6 +224,9 @@ BladeConfig blades[] = {
   { 100.0, WS281XBladePtr<5, bladePin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
     WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>()
   , CONFIGARRAY(blade) }, //Blade Plug
+  { 85.0, WS281XBladePtr<131, bladePin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
+    WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>()
+  , CONFIGARRAY(blade) }, //36" Blade
   { NO_BLADE, WS281XBladePtr<123, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>(), 
     WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>()
   , CONFIGARRAY(chassis) }, //Chassis
