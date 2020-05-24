@@ -21,8 +21,9 @@
 // You can have multiple configuration files, and specify which one
 // to use here.
 
-#define CONFIG_FILE "config/graflex_neo_config.h"
+//#define CONFIG_FILE "config/graflex_neo_config.h"
 // #define CONFIG_FILE "config/disciple_neo_config.h"
+ #define CONFIG_FILE "config/fallen_neo_fo_config.h"
 // #define CONFIG_FILE "config/fallen_tri_config.h"
 // #define CONFIG_FILE "config/fallen_tri_fo_config.h"
 // #define CONFIG_FILE "config/default_proffieboard_config.h"

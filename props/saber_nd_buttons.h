@@ -29,10 +29,10 @@
 // Blaster Blocks - short click AUX button while ON
 // Force Effects - double click Activation button while ON
 // Enter Color Change mode - hold AUX and click Activation button while ON
-// Confirm selected color in Color Change mode - hold the button until confirmation sound
+// Confirm selected color in Color Change mode - click the activation button
 // Volume UP - single click power button while OFF and in VOLUME MENU
 // Volume Down - single click aux button while OFF and in VOLUME MENU
-// Volume Menu - Hold Aux while off, do the same to exit. (can also click power button to exit)
+// Volume Menu - Hold Aux while off, do the same to exit. (can also hold power button to exit)
 // Melt - hold power while stabbing (clash with forward motion, horizontal)
 // Lightning Block - hold power + CLASH when ON
 // Battery level - hold power while off
