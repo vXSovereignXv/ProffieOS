@@ -14,6 +14,7 @@ const unsigned int maxLedsPerStrip = 193;
 #define ENABLE_POWER_FOR_ID PowerPINS<bladePowerPin2,bladePowerPin3>
 #define IDLE_OFF_TIME 60 * 5 * 1000 //5 minutes
 #define KEEP_SAVEFILES_WHEN_PROGRAMMING
+#define REVERSE_VOLUME_BUTTONS
 #endif
 
 #ifdef CONFIG_PROP
@@ -127,18 +128,29 @@ Preset blade[] = {
   }
 };
 
+struct SwitchLED {
+  static constexpr float MaxAmps = 0.02;
+  static constexpr float MaxVolts = 3.3;
+  static constexpr float P2Amps = 0.016;
+  static constexpr float P2Volts = 3.2;
+  static constexpr float R = 0.05; // assumed wire resistance
+  static const int Red = 0;
+  static const int Green = 0;
+  static const int Blue = 255;
+};
+
 BladeConfig blades[] = {
   { 28.0, WS281XBladePtr<123, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
-    SimpleBladePtr<CreeXPE2BlueTemplate<18000>, NoLED, NoLED, NoLED, bladePowerPin6, -1, -1, -1>()
+    SimpleBladePtr<SwitchLED, NoLED, NoLED, NoLED, bladePowerPin6, -1, -1, -1>()
   , CONFIGARRAY(blade) },
   { 37.0, WS281XBladePtr<21, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
-    SimpleBladePtr<CreeXPE2BlueTemplate<18000>, NoLED, NoLED, NoLED, bladePowerPin6, -1, -1, -1>()
+    SimpleBladePtr<SwitchLED, NoLED, NoLED, NoLED, bladePowerPin6, -1, -1, -1>()
   , CONFIGARRAY(blade) }, //Short Blade
-  { 100.0, WS281XBladePtr<5, bladePin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
-    SimpleBladePtr<CreeXPE2BlueTemplate<18000>, NoLED, NoLED, NoLED, bladePowerPin6, -1, -1, -1>()
+  { 47.0, WS281XBladePtr<5, bladePin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
+    SimpleBladePtr<SwitchLED, NoLED, NoLED, NoLED, bladePowerPin6, -1, -1, -1>()
   , CONFIGARRAY(blade) }, //Blade Plug
   { 85.0, WS281XBladePtr<131, bladePin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
-    SimpleBladePtr<CreeXPE2BlueTemplate<18000>, NoLED, NoLED, NoLED, bladePowerPin6, -1, -1, -1>()
+    SimpleBladePtr<SwitchLED, NoLED, NoLED, NoLED, bladePowerPin6, -1, -1, -1>()
   , CONFIGARRAY(blade) } //36" Blade
 };
 #endif

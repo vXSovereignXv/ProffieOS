@@ -24,7 +24,7 @@
 // Turn the blade off - hold and wait till blade is off while ON (like in Plecter boards) or twist gesture while ON
 // Next Preset - short click AUX button while OFF
 // Previous Preset - hold AUX and click Activation button while OFF
-// Lockup - hold AUX button while ON (like in Plecter boards)
+// Lockup - hold AUX button while ON and clash
 // Drag - hold AUX button while ON pointing the blade tip down
 // Blaster Blocks - short click AUX button while ON
 // Force Effects - double click Activation button while ON
@@ -36,7 +36,7 @@
 // Melt - hold power while stabbing (clash with forward motion, horizontal)
 // Lightning Block - hold power + CLASH when ON
 // Battery level - hold power while off
-// Multi-Blast Mode - hold and release AUX while ON to enter mode, Swing to initiate Blasts, click Aux to exit mode
+// Multi-Blast Mode - long click aux button while ON to enter mode, Swing to initiate Blasts, click Aux or power to exit mode
 //
 // 3 Buttons:
 // Activate Muted - fast double click Activation button while OFF
@@ -89,7 +89,11 @@ public:
   }
 
   void ChangeVolume(bool up) {
-    if (up) {
+    bool raiseVol = up;
+  #ifdef REVERSE_VOLUME_BUTTONS
+    raiseVol = !raiseVol;
+  #endif
+    if (raiseVol) {
       STDOUT.println("Volume up");
       if (dynamic_mixer.get_volume() < VOLUME) {
         dynamic_mixer.set_volume(std::min<int>(VOLUME + VOLUME * 0.1,
@@ -423,29 +427,30 @@ public:
       case EVENTID(BUTTON_POWER, EVENT_CLICK_SHORT, MODE_ON | BUTTON_AUX):
 	ToggleColorChangeMode();
 	break;
+#endif
+// Color Change
       case EVENTID(BUTTON_POWER, EVENT_CLICK_SHORT, MODE_ON):
+#ifndef DISABLE_COLOR_CHANGE
           if (SaberBase::GetColorChangeMode() != SaberBase::COLOR_CHANGE_MODE_NONE) {
             // Just exit color change mode.
             ToggleColorChangeMode();
             return true;
           }
+#endif       
   break;
-#endif
 
+// Multiblast
+      case EVENTID(BUTTON_AUX, EVENT_CLICK_LONG, MODE_ON):
+        swing_blast_ = true;
+        hybrid_font.SB_Blast();
+	return true;
 // Blaster Deflection
       case EVENTID(BUTTON_AUX, EVENT_CLICK_SHORT, MODE_ON):
         swing_blast_ = false;
         SaberBase::DoBlast();
 	return true;
 
-// Multiblast
-case EVENTID(BUTTON_AUX2, EVENT_CLICK_LONG, MODE_ON):
-        swing_blast_ = true;
-        hybrid_font.SB_Blast();
-  return true;
-
 // Lockup
-      case EVENTID(BUTTON_AUX, EVENT_HELD, MODE_ON):
       case EVENTID(BUTTON_NONE, EVENT_CLASH, MODE_ON | BUTTON_AUX):
         if (!SaberBase::Lockup()) {
           if (pointing_down_) {
@@ -478,6 +483,13 @@ case EVENTID(BUTTON_AUX2, EVENT_CLICK_LONG, MODE_ON):
       case EVENTID(BUTTON_POWER, EVENT_CLICK_SHORT, MODE_OFF | BUTTON_AUX):
         previous_preset();
 	return true;
+
+#ifndef BLADE_DETECT_PIN
+      case EVENTID(BUTTON_NONE, EVENT_TWIST, MODE_OFF | BUTTON_POWER):
+        FindBladeAgain();
+        SaberBase::DoNewFont();
+  return true;
+#endif
 #elif NUM_BUTTONS == 3
 // Enter Volume Menu
       case EVENTID(BUTTON_AUX, EVENT_CLICK_LONG, MODE_OFF):
