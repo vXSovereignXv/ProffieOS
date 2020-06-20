@@ -42,6 +42,14 @@ const unsigned int maxLedsPerStrip = 193;
 #define mainBladeStyle Layers<AudioFlicker<mainColors,flickerColors>,TransitionEffectL<TrConcat<TrFade<200>,AlphaL<colorsBright,SwingSpeed<500>>,TrDelay<30000>,AlphaL<colorsBright,SwingSpeed<500>>,TrFade<800>>,EFFECT_FORCE>,TransitionEffectL<TrConcat<TrInstant,BrownNoiseFlickerL<AlphaL<White,Int<16000>>,Int<50>>,TrSmoothFade<600>>,EFFECT_LOCKUP_END>,ResponsiveLockupL<Strobe<White,BrownNoiseFlicker<White,Blue,300>,50,1>,TrConcat<TrInstant,White,TrFade<200>>,TrFade<400>,Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<50000>>>,ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,AlphaL<flareColors,Bump<Int<0>,Scale<TwistAngle<>,Int<2000>,Int<10000>>>>,ResponsiveBlastWaveL<White,Int<400>,Scale<SwingSpeed<200>,Int<100>,Int<400>>,Int<400>>,ResponsiveBlastWaveL<White,Int<300>,Int<100>,Int<300>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<20000>,EFFECT_CLASH>,TransitionEffectL<TrConcat<TrInstant,AudioFlickerL<White>,TrFade<800>>,EFFECT_IGNITION>,TransitionEffectL<TrConcat<TrInstant,AudioFlickerL<White>,TrFade<1000>>,EFFECT_RETRACTION>,ResponsiveClashL<White,TrInstant,TrFade<400>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<20000>>,ResponsiveStabL<clashAccent,TrWipeIn<600>,TrWipe<600>>,ResponsiveDragL<BrownNoiseFlickerL<White,Int<300>>,TrWipeIn<400>,TrFade<400>>,ResponsiveMeltL<Mix<TwistAngle<>,clashAccent,meltAccent>,TrWipeIn<600>,TrSmoothFade<600>>,InOutTrL<TrWipeSparkTip<White,300>,TrWipeIn<500>,Black>,TransitionEffectL<TrConcat<TrInstant,AlphaL<Orange,Bump<Int<0>,Int<8000>>>,TrFade<3000>,AlphaL<OrangeRed,Bump<Int<0>,Int<6000>>>,TrFade<3000>,AlphaL<Red,Bump<Int<0>,Int<4000>>>,TrFade<2000>>,EFFECT_RETRACTION>,TransitionEffectL<TrConcat<TrDelay<1500>,Black,TrFade<1000>,AlphaL<Mix<BatteryLevel,Red,Green>,Bump<Int<0>,Int<6000>>>,TrFade<3000>>,EFFECT_BOOT>,TransitionEffectL<TrConcat<TrInstant,AlphaL<Mix<BatteryLevel,Red,Green>,Bump<Int<0>,Int<6000>>>,TrFade<3000>>,EFFECT_NEWFONT>>
 
 Preset blade[] = {
+  { "QuiGon", "QuiGon/tracks/Duel_Film.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(), "QuiGon"
+  },
+  { "Hero_Obi", "Hero_Obi/tracks/BattleOfHeros.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(), "Hero_Obi"
+  },
   { "Luke_ESB", "Luke_ESB/tracks/LvsV.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(), "Luke_ESB"
@@ -74,10 +82,6 @@ Preset blade[] = {
     StylePtr<fulcrumDefault>(),
     StylePtr<chassisOff>(), "Fulcrum"
   },
-  { "Hero_Obi", "Hero_Obi/tracks/BattleOfHeros.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<chassisOff>(), "Hero_Obi"
-  },
   { "ClassicVillian", "Luke_ESB/tracks/LvsV.wav",
     StylePtr<sithDefault>(),
     StylePtr<chassisOff>(), "ClassicVillian"
@@ -90,42 +94,6 @@ Preset blade[] = {
     StylePtr<senateMajority>(),
     StylePtr<chassisOff>(), "Senate Majority V2"
   },
-  { "FOBlue", "tracks/JFO1.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<chassisOff>(), "FOBlue"
-  },
-  { "FOCyan", "tracks/JFO2.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<chassisOff>(), "FOCyan"
-  },
-  { "FOGreen", "tracks/JFO6.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<chassisOff>(), "FOGreen"
-  },
-  { "FOIndigo", "tracks/JFO8.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<chassisOff>(), "FOIndigo"
-  },
-  { "FOMagenta", "tracks/JFO4.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<chassisOff>(), "FOMagenta"
-  },
-  { "FOOrange", "tracks/JFO3.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<chassisOff>(), "FOOrange"
-  },
-  { "FOPurple", "tracks/JFO14.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<chassisOff>(), "FOPurple"
-  },
-  { "FORed", "tracks/JFO19.wav",
-    StylePtr<sithDefault>(),
-    StylePtr<chassisOff>(), "FORed"
-  },
-  { "FOYellow", "tracks/JFO7.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<chassisOff>(), "FOYellow"
-  },
   { "EtaanCrystal", "tracks/JF011.wav",
     StylePtr<colorRun>(),
     StylePtr<chassisOff>(), "EtaanCrystal"
@@ -133,6 +101,14 @@ Preset blade[] = {
 };
 
 Preset chassis[] = {
+  { "QuiGon", "QuiGon/tracks/Duel.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(), "QuiGon"
+  },
+  { "Hero_Obi", "Hero_Obi/tracks/BattleOfHeros.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(), "Hero_Obi"
+  },
   { "Luke_ESB", "Luke_ESB/tracks/LvsV.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(), "Luke_ESB"
@@ -165,10 +141,6 @@ Preset chassis[] = {
     StylePtr<fulcrumDefault>(),
     StylePtr<fulcrumDefault>(), "Fulcrum"
   },
-  { "Hero_Obi", "Hero_Obi/tracks/BattleOfHeros.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "Hero_Obi"
-  },
   { "ClassicVillian", "Luke_ESB/tracks/LvsV.wav",
     StylePtr<sithDefault>(),
     StylePtr<sithDefault>(), "ClassicVillian"
@@ -180,42 +152,6 @@ Preset chassis[] = {
   { "Senate Majority V2", "Senate Majority V2/tracks/Palpatheme.wav",
     StylePtr<senateMajority>(),
     StylePtr<senateMajority>(), "Senate Majority V2"
-  },
-  { "FOBlue", "tracks/JFO1.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOBlue"
-  },
-  { "FOCyan", "tracks/JFO2.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOCyan"
-  },
-  { "FOGreen", "tracks/JFO6.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOGreen"
-  },
-  { "FOIndigo", "tracks/JFO8.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOIndigo"
-  },
-  { "FOMagenta", "tracks/JFO4.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOMagenta"
-  },
-  { "FOOrange", "tracks/JFO3.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOOrange"
-  },
-  { "FOPurple", "tracks/JFO14.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOPurple"
-  },
-  { "FORed", "tracks/JFO19.wav",
-    StylePtr<sithDefault>(),
-    StylePtr<sithDefault>(), "FORed"
-  },
-  { "FOYellow", "tracks/JFO7.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOYellow"
   },
   { "EtaanCrystal", "tracks/JF011.wav",
     StylePtr<colorRun>(),
