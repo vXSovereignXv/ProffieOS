@@ -2,7 +2,7 @@
 // Activate Muted - fast double click while OFF
 // Activate blade - short click while OFF or stab gesture while OFF
 // Play/Stop Music - hold 1 second and release while ON or shake while off
-// Turn the blade off - twist gesture while ON (button hold turns on lightning block now)
+// Turn the blade off - hold power button or twist gesture while ON
 // Next Preset - hold 1 second and release while OFF
 // Previous Preset - hold and wait while OFF
 // Lockup - hold + hit clash while ON
@@ -15,7 +15,9 @@
 // Volume Down - hold button 1 second and release while OFF and in VOLUME MENU
 // Volume Menu - Twist while off to enter menu and twist again to exit (can also hold button to exit)
 // Melt - hold while stabbing (clash with forward motion, horizontal)
-// Lightning Block - hold power when ON
+// Lightning Block - fast double click + hold the button while ON
+// Enter Multi-Block mode - swing + hold the button for 1 second and release while ON (now swing the saber, blaster blocks will trigger automatically)
+// Exit Multi-Block mode - short click while ON
 //
 // 2 Buttons:
 // Activate Muted - fast double click Activation button while OFF
@@ -262,28 +264,23 @@ public:
 	return true;
 
 // Turn Blade OFF	
+      case EVENTID(BUTTON_POWER, EVENT_HELD_LONG, MODE_ON):
       case EVENTID(BUTTON_NONE, EVENT_TWIST, MODE_ON):
     if (!SaberBase::Lockup()) {
-      Off();
-    }
-        return true;
-
-// Lightning Block
-      case EVENTID(BUTTON_POWER, EVENT_HELD_LONG, MODE_ON):
-    if (!SaberBase::Lockup()) {
 #ifndef DISABLE_COLOR_CHANGE
-      if (SaberBase::GetColorChangeMode() != SaberBase::COLOR_CHANGE_MODE_NONE) {
-        // Just exit color change mode.
-        // Don't turn saber off.
-        ToggleColorChangeMode();
-        return true;
-      }
-
-      SaberBase::SetLockup(SaberBase::LOCKUP_LIGHTNING_BLOCK);
-	    SaberBase::DoBeginLockup();
+          if (SaberBase::GetColorChangeMode() != SaberBase::COLOR_CHANGE_MODE_NONE) {
+            // Just exit color change mode.
+            // Don't turn saber off.
+            ToggleColorChangeMode();
+            return true;
+          }
 #endif
+        if (!swinging_) {
+          swing_blast_ = false;
+          Off();
+        }
     }
-  return true;
+        return true;
 
 // Force and Color Change mode
       case EVENTID(BUTTON_NONE, EVENT_TWIST, MODE_ON | BUTTON_POWER):
@@ -300,8 +297,15 @@ public:
 
 // Blaster Deflection
       case EVENTID(BUTTON_POWER, EVENT_CLICK_SHORT, MODE_ON):
+        swing_blast_ = false;
         SaberBase::DoBlast();
 	return true;
+
+// Multi-Blaster Deflection mode
+      case EVENTID(BUTTON_NONE, EVENT_SWING, MODE_ON | BUTTON_POWER):
+        swing_blast_ = true;
+        hybrid_font.SB_Blast();
+        return true;
 
 // Lockup
       case EVENTID(BUTTON_NONE, EVENT_CLASH, MODE_ON | BUTTON_POWER):
@@ -316,6 +320,13 @@ public:
 	  return true;
         }
         break;
+
+// Lightning Block
+      case EVENTID(BUTTON_POWER, EVENT_SECOND_HELD, MODE_ON):
+        SaberBase::SetLockup(SaberBase::LOCKUP_LIGHTNING_BLOCK);
+        swing_blast_ = false;
+        SaberBase::DoBeginLockup();
+        return true;
 
 // Start or Stop Track
       case EVENTID(BUTTON_NONE, EVENT_SHAKE, MODE_OFF):
