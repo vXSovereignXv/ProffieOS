@@ -24,17 +24,17 @@
 // Activate blade - short click Activation button while OFF or stab gesture while OFF
 // Play/Stop Music - hold 1 second and release Activation button while OFF or ON
 // Turn the blade off - hold and wait till blade is off while ON (like in Plecter boards) or twist gesture while ON
-// Next Preset - short click AUX button while OFF
-// Previous Preset - hold AUX and click Activation button while OFF
+// Next Preset - click Aux button while OFF
+// Previous Preset - hold Aux button 1 second and release while OFF
 // Lockup - hold AUX button while ON and clash
 // Drag - hold AUX button while ON pointing the blade tip down
 // Blaster Blocks - short click AUX button while ON
 // Force Effects - double click Activation button while ON
-// Enter Color Change mode - hold AUX and click Activation button while ON
+// Enter Color Change mode - twist the hilt + press and hold the power button while ON
 // Confirm selected color in Color Change mode - click the activation button
 // Volume UP - single click power button while OFF and in VOLUME MENU
 // Volume Down - single click aux button while OFF and in VOLUME MENU
-// Volume Menu - Hold Aux while off, do the same to exit. (can also hold power button to exit)
+// Volume Menu - Twist while off to enter menu and twist again to exit (can also hold button to exit)
 // Melt - hold power while stabbing (clash with forward motion, horizontal)
 // Lightning Block - hold power + CLASH when ON
 // Battery level - hold power while off
@@ -396,7 +396,7 @@ public:
         }
 	return true;
 // Enter Volume Menu
-      case EVENTID(BUTTON_AUX, EVENT_CLICK_LONG, MODE_OFF):
+      case EVENTID(BUTTON_NONE, EVENT_TWIST, MODE_OFF):
         ToggleVolumeMenu();
 	return true;
 
@@ -433,13 +433,14 @@ public:
     }
         return true;
 
-// Color Change mode
+//Color Change mode
+      case EVENTID(BUTTON_NONE, EVENT_TWIST, MODE_ON | BUTTON_POWER):
 #ifndef DISABLE_COLOR_CHANGE
-      case EVENTID(BUTTON_POWER, EVENT_CLICK_SHORT, MODE_ON | BUTTON_AUX):
-	ToggleColorChangeMode();
-	break;
+        ToggleColorChangeMode();
+        return true;
 #endif
-// Color Change
+	break;
+// Exit Color Change
       case EVENTID(BUTTON_POWER, EVENT_CLICK_SHORT, MODE_ON):
 #ifndef DISABLE_COLOR_CHANGE
           if (SaberBase::GetColorChangeMode() != SaberBase::COLOR_CHANGE_MODE_NONE) {
@@ -493,6 +494,13 @@ public:
 // Previous Preset
       case EVENTID(BUTTON_POWER, EVENT_CLICK_SHORT, MODE_OFF | BUTTON_AUX):
         previous_preset();
+	return true;
+
+// Previous Preset
+      case EVENTID(BUTTON_AUX, EVENT_HELD_LONG, MODE_OFF):
+        if (!mode_volume_) {
+          previous_preset();
+        }
 	return true;
 
 #ifndef BLADE_DETECT_PIN
