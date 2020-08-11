@@ -1,6 +1,6 @@
 #ifdef CONFIG_TOP
 #include "proffieboard_v2_config.h"
-#define NUM_BLADES 4
+#define NUM_BLADES 3
 #define NUM_BUTTONS 2
 #define VOLUME 1800
 const unsigned int maxLedsPerStrip = 193;
@@ -25,8 +25,8 @@ const unsigned int maxLedsPerStrip = 193;
 #ifdef CONFIG_PRESETS
 
 #define chassisOff Black
-#define buttonRedPulse Layers<Red,InOutTrL<TrFade<300>,TrFade<300>,Pulsing<Red, Black, 3000>>>
-#define buttonGreenPulse Layers<Green,InOutTrL<TrFade<300>,TrFade<300>,Pulsing<Green, Black, 3000>>>
+#define accentAlternate Layers<TransitionLoop<Green,TrConcat<TrFade<500>,Black,TrFade<500>,Green,TrFade<500>>>,InOutTrL<TrFade<300>,TrFade<300>,TransitionLoop<Black,TrConcat<TrInstant,Green,TrDelay<500>,Red,TrDelay<500>>>>>
+#define accentBlink Layers<TransitionLoop<Green,TrConcat<TrFade<500>,Black,TrFade<500>,Green,TrFade<500>>>,InOutTrL<TrFade<300>,TrFade<300>,TransitionLoop<Black,TrConcat<TrInstant,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Red,TrDelay<200>,Black,TrDelay<150>,Red,TrDelay<200>,Black,TrDelay<150>,Red,TrDelay<200>,Black,TrDelay<150>,Red,TrDelay<200>,Black,TrDelay<150>,Red,TrDelay<200>,Black,TrDelay<150>,Red,TrDelay<200>,Black,TrDelay<150>>>>>
 #define unstableStyle Layers<StyleFire<BrownNoiseFlicker<RotateColorsX<Variation,Red>,RandomPerLEDFlicker<RotateColorsX<Variation,Rgb<25,0,0>>,RotateColorsX<Variation,Rgb<60,0,0>>>,300>,RotateColorsX<Variation,Rgb<80,7,0>>,0,6,FireConfig<10,1000,2>,FireConfig<10,1000,2>,FireConfig<10,1000,2>,FireConfig<10,1000,2>>,TransitionEffectL<TrConcat<TrFade<200>,AlphaL<RotateColorsX<Variation,Rgb<255,150,150>>,SwingSpeed<500>>,TrDelay<30000>,AlphaL<RotateColorsX<Variation,Rgb<255,150,150>>,SwingSpeed<500>>,TrFade<800>>,EFFECT_FORCE>,TransitionEffectL<TrConcat<TrInstant,BrownNoiseFlickerL<AlphaL<White,Int<16000>>,Int<50>>,TrSmoothFade<600>>,EFFECT_LOCKUP_END>,ResponsiveLockupL<Strobe<White,BrownNoiseFlicker<White,Blue,300>,50,1>,TrConcat<TrInstant,White,TrFade<200>>,TrFade<400>,Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<50000>>>,ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,AlphaL<Orange,Bump<Int<0>,Scale<TwistAngle<>,Int<2000>,Int<10000>>>>,ResponsiveBlastWaveL<White,Int<400>,Scale<SwingSpeed<200>,Int<100>,Int<400>>,Int<400>>,ResponsiveBlastWaveL<White,Int<300>,Int<100>,Int<300>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<20000>,EFFECT_CLASH>,ResponsiveClashL<White,TrInstant,TrFade<400>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<20000>>,TransitionEffectL<TrConcat<TrInstant,AudioFlickerL<White>,TrFade<800>>,EFFECT_IGNITION>,TransitionEffectL<TrConcat<TrInstant,HumpFlickerL<White,40>,TrFade<1000>>,EFFECT_RETRACTION>,ResponsiveStabL<Orange,TrWipeIn<600>,TrWipe<600>>,ResponsiveDragL<BrownNoiseFlickerL<White,Int<300>>,TrWipeIn<400>,TrFade<400>>,ResponsiveMeltL<Mix<TwistAngle<>,OrangeRed,Orange>,TrWipeIn<600>,TrSmoothFade<600>>,InOutTrL<TrWipeSparkTip<White,300>,TrWipeIn<500>,Black>,TransitionEffectL<TrConcat<TrInstant,AlphaL<Orange,Bump<Int<0>,Int<8000>>>,TrFade<3000>,AlphaL<OrangeRed,Bump<Int<0>,Int<6000>>>,TrFade<3000>,AlphaL<Red,Bump<Int<0>,Int<4000>>>,TrFade<2000>>,EFFECT_RETRACTION>,TransitionEffectL<TrConcat<TrDelay<1500>,Black,TrFade<1000>,AlphaL<Mix<BatteryLevel,Red,Green>,Bump<Int<0>,Int<6000>>>,TrFade<3000>>,EFFECT_BOOT>,TransitionEffectL<TrConcat<TrInstant,AlphaL<Mix<BatteryLevel,Red,Green>,Bump<Int<0>,Int<6000>>>,TrFade<3000>>,EFFECT_NEWFONT>>
 #define sithDefault Layers<AudioFlicker<RotateColorsX<Variation,Red>,RotateColorsX<Variation,Rgb<128,0,0>>>,TransitionEffectL<TrConcat<TrFade<200>,AlphaL<RotateColorsX<Variation,Rgb<255,150,150>>,SwingSpeed<500>>,TrDelay<30000>,AlphaL<RotateColorsX<Variation,Rgb<255,150,150>>,SwingSpeed<500>>,TrFade<800>>,EFFECT_FORCE>,TransitionEffectL<TrConcat<TrInstant,BrownNoiseFlickerL<AlphaL<White,Int<16000>>,Int<50>>,TrSmoothFade<600>>,EFFECT_LOCKUP_END>,ResponsiveLockupL<Strobe<White,BrownNoiseFlicker<White,Blue,300>,50,1>,TrConcat<TrInstant,White,TrFade<200>>,TrFade<400>,Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<50000>>>,ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,AlphaL<Orange,Bump<Int<0>,Scale<BladeAngle<>,Int<2000>,Int<10000>>>>,ResponsiveBlastWaveL<White,Int<400>,Scale<SwingSpeed<200>,Int<100>,Int<400>>,Int<400>>,ResponsiveBlastWaveL<White,Int<300>,Int<100>,Int<300>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<20000>,EFFECT_CLASH>,ResponsiveClashL<White,TrInstant,TrFade<400>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<20000>>,TransitionEffectL<TrConcat<TrInstant,AudioFlickerL<White>,TrFade<800>>,EFFECT_IGNITION>,TransitionEffectL<TrConcat<TrInstant,AudioFlickerL<White>,TrFade<1000>>,EFFECT_RETRACTION>,ResponsiveStabL<Orange,TrWipeIn<600>,TrWipe<600>>,ResponsiveDragL<BrownNoiseFlickerL<White,Int<300>>,TrWipeIn<400>,TrFade<400>>,ResponsiveMeltL<Mix<TwistAngle<>,OrangeRed,Rgb<255,160,0>>,TrWipeIn<600>,TrSmoothFade<600>>,InOutTrL<TrWipeSparkTip<White,300>,TrWipeIn<500>,Black>,TransitionEffectL<TrConcat<TrInstant,AlphaL<Orange,Bump<Int<0>,Int<8000>>>,TrFade<3000>,AlphaL<OrangeRed,Bump<Int<0>,Int<6000>>>,TrFade<3000>,AlphaL<Red,Bump<Int<0>,Int<4000>>>,TrFade<2000>>,EFFECT_RETRACTION>,TransitionEffectL<TrConcat<TrInstant,AlphaL<Orange,Bump<Int<0>,Int<8000>>>,TrFade<3000>,AlphaL<OrangeRed,Bump<Int<0>,Int<6000>>>,TrFade<3000>,AlphaL<Red,Bump<Int<0>,Int<4000>>>,TrFade<2000>>,EFFECT_RETRACTION>,TransitionEffectL<TrConcat<TrDelay<1500>,Black,TrFade<1000>,AlphaL<Mix<BatteryLevel,Red,Green>,Bump<Int<0>,Int<6000>>>,TrFade<3000>>,EFFECT_BOOT>,TransitionEffectL<TrConcat<TrInstant,AlphaL<Mix<BatteryLevel,Red,Green>,Bump<Int<0>,Int<6000>>>,TrFade<3000>>,EFFECT_NEWFONT>>
 #define reyDefault Layers<Mix<SwingSpeed<400>,AudioFlicker<RotateColorsX<Variation,Rgb<255,160,0>>,RotateColorsX<Variation,Rgb<84,60,0>>>,Mix<SwingSpeed<600>,RotateColorsX<Variation,Rgb<255,160,0>>,RotateColorsX<Variation,BlanchedAlmond>>>,TransitionEffectL<TrConcat<TrInstant,AlphaL<AudioFlicker<Blue,SteelBlue>,Bump<Int<0>,Int<15000>>>,TrFade<600>>,EFFECT_IGNITION>,ResponsiveBlastWaveL<White,Int<400>,Scale<SwingSpeed<200>,Int<100>,Int<400>>,Int<400>>,ResponsiveBlastWaveL<White,Int<300>,Int<100>,Int<300>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<20000>,EFFECT_CLASH>,ResponsiveClashL<White,TrInstant,TrFade<400>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<20000>>,ResponsiveStabL<Orange,TrWipeIn<600>,TrWipe<600>>,TransitionEffectL<TrConcat<TrInstant,BrownNoiseFlickerL<AlphaL<White,Int<16000>>,Int<50>>,TrSmoothFade<600>>,EFFECT_LOCKUP_END>,ResponsiveLockupL<Strobe<White,BrownNoiseFlicker<White,Blue,300>,50,1>,TrConcat<TrInstant,White,TrFade<200>>,TrFade<400>,Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<50000>>>,ResponsiveDragL<BrownNoiseFlickerL<White,Int<300>>,TrWipeIn<400>,TrFade<400>>,ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,ResponsiveMeltL<Mix<TwistAngle<>,OrangeRed,Orange>,TrWipeIn<600>,TrSmoothFade<600>>,InOutTrL<TrWipe<300>,TrWipeIn<500>,Black>,TransitionEffectL<TrConcat<TrDelay<1500>,Black,TrFade<1000>,AlphaL<Mix<BatteryLevel,Red,Green>,Bump<Int<0>,Int<6000>>>,TrFade<3000>>,EFFECT_BOOT>,TransitionEffectL<TrConcat<TrInstant,AlphaL<Mix<BatteryLevel,Red,Green>,Bump<Int<0>,Int<6000>>>,TrFade<3000>>,EFFECT_NEWFONT>,TransitionEffectL<TrConcat<TrInstant,AlphaL<Blinking<Green,Blue,80,500>,Bump<Int<0>,Int<8000>>>,TrDelay<500>>,EFFECT_PREON>>
@@ -46,128 +46,107 @@ Preset blade[] = {
   { "Luke_RoTJ", "Luke_RoTJ/tracks/Final_Duel.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "Luke_RoTJ"
+    StylePtr<accentBlink>(), "Luke_RoTJ"
   },
   { "Luke_ESB", "Luke_ESB/tracks/LvsV.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "Luke_ESB"
+    StylePtr<accentAlternate>(), "Luke_ESB"
   },
   { "ReFLEX_BEN", "ReFLEX_BEN/tracks/Ben_vs_Knights.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "ReFLEX_BEN"
+    StylePtr<accentAlternate>(), "ReFLEX_BEN"
   },
   { "ReFLEX_REY", "ReFLEX_REY/tracks/Training_Course_Music.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "ReFLEX_REY"
+    StylePtr<accentAlternate>(), "ReFLEX_REY"
   },
   { "Unstable", "tracks/KyloTheme.wav",
     StylePtr<unstableStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "Unstable"
+    StylePtr<accentAlternate>(), "Unstable"
   },
   { "Unstable_v2", "Unstable_v2/tracks/track3.wav",
     StylePtr<unstableStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "Unstable_v2"
+    StylePtr<accentAlternate>(), "Unstable_v2"
   },
   { "FOSister", "tracks/JFO12.wav",
     StylePtr<sithUnstableSwing>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FOSister"
+    StylePtr<accentAlternate>(), "FOSister"
   },
   { "Fulcrum", "fulcrum/tracks/track3.wav",
     StylePtr<fulcrumDefault>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "Fulcrum"
+    StylePtr<accentAlternate>(), "Fulcrum"
   },
   { "Hero_Obi", "Hero_Obi/tracks/BattleOfHeros.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "Hero_Obi"
+    StylePtr<accentAlternate>(), "Hero_Obi"
   },
   { "ClassicVillian", "Luke_ESB/tracks/LvsV.wav",
     StylePtr<sithDefault>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "ClassicVillian"
+    StylePtr<accentAlternate>(), "ClassicVillian"
   },
   { "Scavengers_Destiny", "Scavengers_Destiny/tracks/track4.wav",
     StylePtr<reyDefault>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "Scavengers_Destiny"
+    StylePtr<accentAlternate>(), "Scavengers_Destiny"
   },
   { "FOBlue", "tracks/JFO1.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FOBlue"
+    StylePtr<accentAlternate>(), "FOBlue"
   },
   { "FOCyan", "tracks/JFO2.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FOCyan"
+    StylePtr<accentAlternate>(), "FOCyan"
   },
   { "FOGreen", "tracks/JFO6.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FOGreen"
+    StylePtr<accentAlternate>(), "FOGreen"
   },
   { "FOIndigo", "tracks/JFO8.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FOIndigo"
+    StylePtr<accentAlternate>(), "FOIndigo"
   },
   { "FOMagenta", "tracks/JFO4.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FOMagenta"
+    StylePtr<accentAlternate>(), "FOMagenta"
   },
   { "FOOrange", "tracks/JFO3.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FOOrange"
+    StylePtr<accentAlternate>(), "FOOrange"
   },
   { "FOPurple", "tracks/JFO14.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FOPurple"
+    StylePtr<accentAlternate>(), "FOPurple"
   },
   { "FORed", "tracks/JFO19.wav",
     StylePtr<sithDefault>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FORed"
+    StylePtr<accentAlternate>(), "FORed"
   },
   { "FOYellow", "tracks/JFO7.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FOYellow"
+    StylePtr<accentAlternate>(), "FOYellow"
   },
   { "EtaanCrystal", "tracks/JF011.wav",
     StylePtr<colorRun>(),
     StylePtr<chassisOff>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "EtaanCrystal"
+    StylePtr<accentAlternate>(), "EtaanCrystal"
   }
 };
 
@@ -175,158 +154,131 @@ Preset chassis[] = {
   { "Luke_RoTJ", "Luke_RoTJ/tracks/Final_Duel.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "Luke_RoTJ"
+    StylePtr<accentBlink>(), "Luke_RoTJ"
   },
   { "Luke_ESB", "Luke_ESB/tracks/LvsV.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "Luke_ESB"
+    StylePtr<accentAlternate>(), "Luke_ESB"
   },
   { "ReFLEX_BEN", "ReFLEX_BEN/tracks/Ben_vs_Knights.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "ReFLEX_BEN"
+    StylePtr<accentAlternate>(), "ReFLEX_BEN"
   },
   { "ReFLEX_REY", "ReFLEX_REY/tracks/Training_Course_Music.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "ReFLEX_REY"
+    StylePtr<accentAlternate>(), "ReFLEX_REY"
   },
   { "Unstable", "tracks/KyloTheme.wav",
     StylePtr<unstableStyle>(),
     StylePtr<unstableStyle>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "Unstable"
+    StylePtr<accentAlternate>(), "Unstable"
   },
   { "Unstable_v2", "Unstable_v2/tracks/track3.wav",
     StylePtr<unstableStyle>(),
     StylePtr<unstableStyle>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "Unstable_v2"
+    StylePtr<accentAlternate>(), "Unstable_v2"
   },
   { "FOSister", "tracks/JFO12.wav",
     StylePtr<sithUnstableSwing>(),
     StylePtr<sithUnstableSwing>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FOSister"
+    StylePtr<accentAlternate>(), "FOSister"
   },
   { "Fulcrum", "fulcrum/tracks/track3.wav",
     StylePtr<fulcrumDefault>(),
     StylePtr<fulcrumDefault>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "Fulcrum"
+    StylePtr<accentAlternate>(), "Fulcrum"
   },
   { "Hero_Obi", "Hero_Obi/tracks/BattleOfHeros.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "Hero_Obi"
+    StylePtr<accentAlternate>(), "Hero_Obi"
   },
   { "ClassicVillian", "Luke_ESB/tracks/LvsV.wav",
     StylePtr<sithDefault>(),
     StylePtr<sithDefault>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "ClassicVillian"
+    StylePtr<accentAlternate>(), "ClassicVillian"
   },
   { "Scavengers_Destiny", "Scavengers_Destiny/tracks/track4.wav",
     StylePtr<reyDefault>(),
     StylePtr<reyDefault>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "Scavengers_Destiny"
+    StylePtr<accentAlternate>(), "Scavengers_Destiny"
   },
   { "FOBlue", "tracks/JFO1.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FOBlue"
+    StylePtr<accentAlternate>(), "FOBlue"
   },
   { "FOCyan", "tracks/JFO2.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FOCyan"
+    StylePtr<accentAlternate>(), "FOCyan"
   },
   { "FOGreen", "tracks/JFO6.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FOGreen"
+    StylePtr<accentAlternate>(), "FOGreen"
   },
   { "FOIndigo", "tracks/JFO8.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FOIndigo"
+    StylePtr<accentAlternate>(), "FOIndigo"
   },
   { "FOMagenta", "tracks/JFO4.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FOMagenta"
+    StylePtr<accentAlternate>(), "FOMagenta"
   },
   { "FOOrange", "tracks/JFO3.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FOOrange"
+    StylePtr<accentAlternate>(), "FOOrange"
   },
   { "FOPurple", "tracks/JFO14.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FOPurple"
+    StylePtr<accentAlternate>(), "FOPurple"
   },
   { "FORed", "tracks/JFO19.wav",
     StylePtr<sithDefault>(),
     StylePtr<sithDefault>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FORed"
+    StylePtr<accentAlternate>(), "FORed"
   },
   { "FOYellow", "tracks/JFO7.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "FOYellow"
+    StylePtr<accentAlternate>(), "FOYellow"
   },
   { "EtaanCrystal", "tracks/JF011.wav",
     StylePtr<colorRun>(),
     StylePtr<colorRun>(),
-    StylePtr<buttonGreenPulse>(),
-    StylePtr<buttonRedPulse>(), "EtaanCrystal"
+    StylePtr<accentAlternate>(), "EtaanCrystal"
   }
 };
 
-//Remeasure all blades
 BladeConfig blades[] = {
   { 28.0, WS281XBladePtr<123, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
     WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
-    SimpleBladePtr<CH2LED, NoLED, NoLED, NoLED, bladePowerPin4, -1, -1, -1>(),
-    SimpleBladePtr<CH1LED, NoLED, NoLED, NoLED, bladePowerPin5, -1, -1, -1>(),
+    SimpleBladePtr<CH1LED, CH2LED, NoLED, NoLED, bladePowerPin5, bladePowerPin6, -1, -1>(),
     CONFIGARRAY(blade) },
   { 37.0, WS281XBladePtr<21, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
     WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
-    SimpleBladePtr<CH2LED, NoLED, NoLED, NoLED, bladePowerPin4, -1, -1, -1>(),
-    SimpleBladePtr<CH1LED, NoLED, NoLED, NoLED, bladePowerPin5, -1, -1, -1>(),
+    SimpleBladePtr<CH1LED, CH2LED, NoLED, NoLED, bladePowerPin5, bladePowerPin6, -1, -1>(),
     CONFIGARRAY(blade) }, //Short Blade
   { 47.0, WS281XBladePtr<5, bladePin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
     WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
-    SimpleBladePtr<CH2LED, NoLED, NoLED, NoLED, bladePowerPin4, -1, -1, -1>(),
-    SimpleBladePtr<CH1LED, NoLED, NoLED, NoLED, bladePowerPin5, -1, -1, -1>(),
+    SimpleBladePtr<CH1LED, CH2LED, NoLED, NoLED, bladePowerPin5, bladePowerPin6, -1, -1>(),
     CONFIGARRAY(blade) }, //Blade Plug
   { 85.0, WS281XBladePtr<131, bladePin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
     WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
-    SimpleBladePtr<CH2LED, NoLED, NoLED, NoLED, bladePowerPin4, -1, -1, -1>(),
-    SimpleBladePtr<CH1LED, NoLED, NoLED, NoLED, bladePowerPin5, -1, -1, -1>(),
+    SimpleBladePtr<CH1LED, CH2LED, NoLED, NoLED, bladePowerPin5, bladePowerPin6, -1, -1>(),
     CONFIGARRAY(blade) }, //36" Blade
-  { 1000, WS281XBladePtr<123, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>(), 
+  { 516.0, WS281XBladePtr<123, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>(), 
     WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
-    SimpleBladePtr<CH2LED, NoLED, NoLED, NoLED, bladePowerPin4, -1, -1, -1>(),
-    SimpleBladePtr<CH1LED, NoLED, NoLED, NoLED, bladePowerPin5, -1, -1, -1>(),
-    CONFIGARRAY(chassis) } //Chassis - Need resistor on chassis pcb to blade detect pin
+    SimpleBladePtr<CH1LED, CH2LED, NoLED, NoLED, bladePowerPin5, bladePowerPin6, -1, -1>(),
+    CONFIGARRAY(chassis) }
 };
 #endif
 

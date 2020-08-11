@@ -490,14 +490,8 @@ public:
         next_preset();
 	return true;
 
-
 // Previous Preset
-      case EVENTID(BUTTON_POWER, EVENT_CLICK_SHORT, MODE_OFF | BUTTON_AUX):
-        previous_preset();
-	return true;
-
-// Previous Preset
-      case EVENTID(BUTTON_AUX, EVENT_HELD_LONG, MODE_OFF):
+      case EVENTID(BUTTON_AUX, EVENT_CLICK_LONG, MODE_OFF):
         if (!mode_volume_) {
           previous_preset();
         }
