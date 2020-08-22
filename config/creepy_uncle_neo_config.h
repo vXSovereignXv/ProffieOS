@@ -4,7 +4,7 @@
 #define NUM_BUTTONS 2
 #define VOLUME 1800
 const unsigned int maxLedsPerStrip = 193;
-#define CLASH_THRESHOLD_G 1.5
+#define CLASH_THRESHOLD_G 2.0
 #define ENABLE_AUDIO
 #define ENABLE_MOTION
 #define ENABLE_WS2811
@@ -25,8 +25,8 @@ const unsigned int maxLedsPerStrip = 193;
 #ifdef CONFIG_PRESETS
 
 #define chassisOff Black
-#define accentAlternate Layers<Pulsing<Mix<IsLessThan<BatteryLevel,Int<10814>>,Green,Red>,Black,1200>,LockupL<Blinking<Red,Black,250,500>,Blinking<Red,Black,250,500>,Int<32768>,Int<32768>,Int<32768>>,TransitionEffectL<TrConcat<TrInstant,Blinking<Green,Black,250,500>,TrDelay<5000>>,EFFECT_FORCE>,InOutTrL<TrFade<300>,TrFade<300>,TransitionLoop<Black,TrConcat<TrInstant,Green,TrDelay<500>,Red,TrDelay<500>>>>>
-#define accentBlink Layers<Pulsing<Mix<IsLessThan<BatteryLevel,Int<10814>>,Green,Red>,Black,1200>,LockupL<Blinking<Red,Black,250,500>,Blinking<Red,Black,250,500>,Int<32768>,Int<32768>,Int<32768>>,TransitionEffectL<TrConcat<TrInstant,Blinking<Green,Black,250,500>,TrDelay<5000>>,EFFECT_FORCE>,InOutTrL<TrFade<300>,TrFade<300>,TransitionLoop<Black,TrConcat<TrInstant,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Red,TrDelay<200>,Black,TrDelay<150>,Red,TrDelay<200>,Black,TrDelay<150>,Red,TrDelay<200>,Black,TrDelay<150>,Red,TrDelay<200>,Black,TrDelay<150>,Red,TrDelay<200>,Black,TrDelay<150>,Red,TrDelay<200>,Black,TrDelay<150>>>>>
+#define accentAlternate Layers<Pulsing<Mix<IsLessThan<BatteryLevel,Int<2300>>,Green,Red>,Black,1200>,LockupL<Blinking<Red,Black,250,500>,Blinking<Red,Black,250,500>,Int<32768>,Int<32768>,Int<32768>>,TransitionEffectL<TrConcat<TrInstant,Blinking<Green,Black,250,500>,TrDelay<5000>>,EFFECT_FORCE>,InOutTrL<TrFade<300>,TrFade<300>,TransitionLoop<Black,TrConcat<TrInstant,Green,TrDelay<500>,Red,TrDelay<500>>>>>
+#define accentBlink Layers<Pulsing<Mix<IsLessThan<BatteryLevel,Int<2300>>,Green,Red>,Black,1200>,LockupL<Blinking<Red,Black,250,500>,Blinking<Red,Black,250,500>,Int<32768>,Int<32768>,Int<32768>>,TransitionEffectL<TrConcat<TrInstant,Blinking<Green,Black,250,500>,TrDelay<5000>>,EFFECT_FORCE>,InOutTrL<TrFade<300>,TrFade<300>,TransitionLoop<Black,TrConcat<TrInstant,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Green,TrDelay<200>,Black,TrDelay<150>,Red,TrDelay<200>,Black,TrDelay<150>,Red,TrDelay<200>,Black,TrDelay<150>,Red,TrDelay<200>,Black,TrDelay<150>,Red,TrDelay<200>,Black,TrDelay<150>,Red,TrDelay<200>,Black,TrDelay<150>,Red,TrDelay<200>,Black,TrDelay<150>>>>>
 #define unstableStyle Layers<StyleFire<BrownNoiseFlicker<RotateColorsX<Variation,Red>,RandomPerLEDFlicker<RotateColorsX<Variation,Rgb<25,0,0>>,RotateColorsX<Variation,Rgb<60,0,0>>>,300>,RotateColorsX<Variation,Rgb<80,7,0>>,0,6,FireConfig<10,1000,2>,FireConfig<10,1000,2>,FireConfig<10,1000,2>,FireConfig<10,1000,2>>,TransitionEffectL<TrConcat<TrFade<200>,AlphaL<RotateColorsX<Variation,Rgb<255,150,150>>,SwingSpeed<500>>,TrDelay<30000>,AlphaL<RotateColorsX<Variation,Rgb<255,150,150>>,SwingSpeed<500>>,TrFade<800>>,EFFECT_FORCE>,TransitionEffectL<TrConcat<TrInstant,BrownNoiseFlickerL<AlphaL<White,Int<16000>>,Int<50>>,TrSmoothFade<600>>,EFFECT_LOCKUP_END>,ResponsiveLockupL<Strobe<White,BrownNoiseFlicker<White,Blue,300>,50,1>,TrConcat<TrInstant,White,TrFade<200>>,TrFade<400>,Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<50000>>>,ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,AlphaL<Orange,Bump<Int<0>,Scale<TwistAngle<>,Int<2000>,Int<10000>>>>,ResponsiveBlastWaveL<White,Int<400>,Scale<SwingSpeed<200>,Int<100>,Int<400>>,Int<400>>,ResponsiveBlastWaveL<White,Int<300>,Int<100>,Int<300>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<20000>,EFFECT_CLASH>,ResponsiveClashL<White,TrInstant,TrFade<400>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<20000>>,TransitionEffectL<TrConcat<TrInstant,AudioFlickerL<White>,TrFade<800>>,EFFECT_IGNITION>,TransitionEffectL<TrConcat<TrInstant,HumpFlickerL<White,40>,TrFade<1000>>,EFFECT_RETRACTION>,ResponsiveStabL<Orange,TrWipeIn<600>,TrWipe<600>>,ResponsiveDragL<BrownNoiseFlickerL<White,Int<300>>,TrWipeIn<400>,TrFade<400>>,ResponsiveMeltL<Mix<TwistAngle<>,OrangeRed,Orange>,TrWipeIn<600>,TrSmoothFade<600>>,InOutTrL<TrWipeSparkTip<White,300>,TrWipeIn<500>,Black>,TransitionEffectL<TrConcat<TrInstant,AlphaL<Orange,Bump<Int<0>,Int<8000>>>,TrFade<3000>,AlphaL<OrangeRed,Bump<Int<0>,Int<6000>>>,TrFade<3000>,AlphaL<Red,Bump<Int<0>,Int<4000>>>,TrFade<2000>>,EFFECT_RETRACTION>,TransitionEffectL<TrConcat<TrDelay<1500>,Black,TrFade<1000>,AlphaL<Mix<BatteryLevel,Red,Green>,Bump<Int<0>,Int<6000>>>,TrFade<3000>>,EFFECT_BOOT>,TransitionEffectL<TrConcat<TrInstant,AlphaL<Mix<BatteryLevel,Red,Green>,Bump<Int<0>,Int<6000>>>,TrFade<3000>>,EFFECT_NEWFONT>>
 #define sithDefault Layers<AudioFlicker<RotateColorsX<Variation,Red>,RotateColorsX<Variation,Rgb<128,0,0>>>,TransitionEffectL<TrConcat<TrFade<200>,AlphaL<RotateColorsX<Variation,Rgb<255,150,150>>,SwingSpeed<500>>,TrDelay<30000>,AlphaL<RotateColorsX<Variation,Rgb<255,150,150>>,SwingSpeed<500>>,TrFade<800>>,EFFECT_FORCE>,TransitionEffectL<TrConcat<TrInstant,BrownNoiseFlickerL<AlphaL<White,Int<16000>>,Int<50>>,TrSmoothFade<600>>,EFFECT_LOCKUP_END>,ResponsiveLockupL<Strobe<White,BrownNoiseFlicker<White,Blue,300>,50,1>,TrConcat<TrInstant,White,TrFade<200>>,TrFade<400>,Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<50000>>>,ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,AlphaL<Orange,Bump<Int<0>,Scale<BladeAngle<>,Int<2000>,Int<10000>>>>,ResponsiveBlastWaveL<White,Int<400>,Scale<SwingSpeed<200>,Int<100>,Int<400>>,Int<400>>,ResponsiveBlastWaveL<White,Int<300>,Int<100>,Int<300>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<20000>,EFFECT_CLASH>,ResponsiveClashL<White,TrInstant,TrFade<400>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<20000>>,TransitionEffectL<TrConcat<TrInstant,AudioFlickerL<White>,TrFade<800>>,EFFECT_IGNITION>,TransitionEffectL<TrConcat<TrInstant,AudioFlickerL<White>,TrFade<1000>>,EFFECT_RETRACTION>,ResponsiveStabL<Orange,TrWipeIn<600>,TrWipe<600>>,ResponsiveDragL<BrownNoiseFlickerL<White,Int<300>>,TrWipeIn<400>,TrFade<400>>,ResponsiveMeltL<Mix<TwistAngle<>,OrangeRed,Rgb<255,160,0>>,TrWipeIn<600>,TrSmoothFade<600>>,InOutTrL<TrWipeSparkTip<White,300>,TrWipeIn<500>,Black>,TransitionEffectL<TrConcat<TrInstant,AlphaL<Orange,Bump<Int<0>,Int<8000>>>,TrFade<3000>,AlphaL<OrangeRed,Bump<Int<0>,Int<6000>>>,TrFade<3000>,AlphaL<Red,Bump<Int<0>,Int<4000>>>,TrFade<2000>>,EFFECT_RETRACTION>,TransitionEffectL<TrConcat<TrInstant,AlphaL<Orange,Bump<Int<0>,Int<8000>>>,TrFade<3000>,AlphaL<OrangeRed,Bump<Int<0>,Int<6000>>>,TrFade<3000>,AlphaL<Red,Bump<Int<0>,Int<4000>>>,TrFade<2000>>,EFFECT_RETRACTION>,TransitionEffectL<TrConcat<TrDelay<1500>,Black,TrFade<1000>,AlphaL<Mix<BatteryLevel,Red,Green>,Bump<Int<0>,Int<6000>>>,TrFade<3000>>,EFFECT_BOOT>,TransitionEffectL<TrConcat<TrInstant,AlphaL<Mix<BatteryLevel,Red,Green>,Bump<Int<0>,Int<6000>>>,TrFade<3000>>,EFFECT_NEWFONT>>
 #define reyDefault Layers<Mix<SwingSpeed<400>,AudioFlicker<RotateColorsX<Variation,Rgb<255,160,0>>,RotateColorsX<Variation,Rgb<84,60,0>>>,Mix<SwingSpeed<600>,RotateColorsX<Variation,Rgb<255,160,0>>,RotateColorsX<Variation,BlanchedAlmond>>>,TransitionEffectL<TrConcat<TrInstant,AlphaL<AudioFlicker<Blue,SteelBlue>,Bump<Int<0>,Int<15000>>>,TrFade<600>>,EFFECT_IGNITION>,ResponsiveBlastWaveL<White,Int<400>,Scale<SwingSpeed<200>,Int<100>,Int<400>>,Int<400>>,ResponsiveBlastWaveL<White,Int<300>,Int<100>,Int<300>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<20000>,EFFECT_CLASH>,ResponsiveClashL<White,TrInstant,TrFade<400>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<20000>>,ResponsiveStabL<Orange,TrWipeIn<600>,TrWipe<600>>,TransitionEffectL<TrConcat<TrInstant,BrownNoiseFlickerL<AlphaL<White,Int<16000>>,Int<50>>,TrSmoothFade<600>>,EFFECT_LOCKUP_END>,ResponsiveLockupL<Strobe<White,BrownNoiseFlicker<White,Blue,300>,50,1>,TrConcat<TrInstant,White,TrFade<200>>,TrFade<400>,Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<50000>>>,ResponsiveDragL<BrownNoiseFlickerL<White,Int<300>>,TrWipeIn<400>,TrFade<400>>,ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,ResponsiveMeltL<Mix<TwistAngle<>,OrangeRed,Orange>,TrWipeIn<600>,TrSmoothFade<600>>,InOutTrL<TrWipe<300>,TrWipeIn<500>,Black>,TransitionEffectL<TrConcat<TrDelay<1500>,Black,TrFade<1000>,AlphaL<Mix<BatteryLevel,Red,Green>,Bump<Int<0>,Int<6000>>>,TrFade<3000>>,EFFECT_BOOT>,TransitionEffectL<TrConcat<TrInstant,AlphaL<Mix<BatteryLevel,Red,Green>,Bump<Int<0>,Int<6000>>>,TrFade<3000>>,EFFECT_NEWFONT>,TransitionEffectL<TrConcat<TrInstant,AlphaL<Blinking<Green,Blue,80,500>,Bump<Int<0>,Int<8000>>>,TrDelay<500>>,EFFECT_PREON>>
@@ -46,112 +46,112 @@ Preset blade[] = {
   { "Luke_RoTJ", "Luke_RoTJ/tracks/Final_Duel.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentBlink>(), "The Return"
+    StylePtr<accentBlink>(), "the return"
   },
   { "Grumpy_Uncle", "Grumpy_Uncle/tracks/track3.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentBlink>(), "Grumpy Uncle"
+    StylePtr<accentBlink>(), "grumpy uncle"
   },
   { "Luke_ESB", "Luke_ESB/tracks/LvsV.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "ESB Graflex"
+    StylePtr<accentAlternate>(), "esb graflex"
   },
   { "ReFLEX_BEN", "ReFLEX_BEN/tracks/Ben_vs_Knights.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "ReFLEX BEN"
+    StylePtr<accentAlternate>(), "reflex ben"
   },
   { "ReFLEX_REY", "ReFLEX_REY/tracks/Training_Course_Music.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "ReFLEX REY"
+    StylePtr<accentAlternate>(), "reflex rey"
   },
   { "Unstable", "tracks/KyloTheme.wav",
     StylePtr<unstableStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "Unstable"
+    StylePtr<accentAlternate>(), "unstable"
   },
   { "Unstable_v2", "Unstable_v2/tracks/track3.wav",
     StylePtr<unstableStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "Unstable v2"
+    StylePtr<accentAlternate>(), "unstable2"
   },
   { "FOSister", "tracks/JFO12.wav",
     StylePtr<sithUnstableSwing>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "Second Sister"
+    StylePtr<accentAlternate>(), "2nd sister"
   },
   { "Fulcrum", "fulcrum/tracks/track3.wav",
     StylePtr<fulcrumDefault>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "Fulcrum"
+    StylePtr<accentAlternate>(), "fulcrum"
   },
   { "Hero_Obi", "Hero_Obi/tracks/BattleOfHeros.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "Hero Obi"
+    StylePtr<accentAlternate>(), "hero obi"
   },
   { "ClassicVillian", "Luke_ESB/tracks/LvsV.wav",
     StylePtr<sithDefault>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "Classic Villian"
+    StylePtr<accentAlternate>(), "vader"
   },
   { "Scavengers_Destiny", "Scavengers_Destiny/tracks/track4.wav",
     StylePtr<reyDefault>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "Scavengers Destiny"
+    StylePtr<accentAlternate>(), "destiny"
   },
   { "FOBlue", "tracks/JFO1.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "FO Blue"
+    StylePtr<accentAlternate>(), "fo blue"
   },
   { "FOCyan", "tracks/JFO2.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "FO Cyan"
+    StylePtr<accentAlternate>(), "fo cyan"
   },
   { "FOGreen", "tracks/JFO6.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "FO Green"
+    StylePtr<accentAlternate>(), "fo green"
   },
   { "FOIndigo", "tracks/JFO8.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "FO Indigo"
+    StylePtr<accentAlternate>(), "fo indigo"
   },
   { "FOMagenta", "tracks/JFO4.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "FO Magenta"
+    StylePtr<accentAlternate>(), "fo magenta"
   },
   { "FOOrange", "tracks/JFO3.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "FO Orange"
+    StylePtr<accentAlternate>(), "fo orange"
   },
   { "FOPurple", "tracks/JFO14.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "FO Purple"
+    StylePtr<accentAlternate>(), "fo purple"
   },
   { "FORed", "tracks/JFO19.wav",
     StylePtr<sithDefault>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "FO Red"
+    StylePtr<accentAlternate>(), "fo red"
   },
   { "FOYellow", "tracks/JFO7.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "FO Yellow"
+    StylePtr<accentAlternate>(), "fo yellow"
   },
   { "EtaanCrystal", "tracks/JF011.wav",
     StylePtr<colorRun>(),
     StylePtr<chassisOff>(),
-    StylePtr<accentAlternate>(), "Etaan Crystal"
+    StylePtr<accentAlternate>(), "etaan"
   }
 };
 
@@ -159,112 +159,112 @@ Preset chassis[] = {
   { "Luke_RoTJ", "Luke_RoTJ/tracks/Final_Duel.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<accentBlink>(), "The Return"
+    StylePtr<accentBlink>(), "the return"
   },
   { "Grumpy_Uncle", "Grumpy_Uncle/tracks/track3.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<accentBlink>(), "Grumpy Uncle"
+    StylePtr<accentBlink>(), "grumpy uncle"
   },
   { "Luke_ESB", "Luke_ESB/tracks/LvsV.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "ESB Graflex"
+    StylePtr<accentAlternate>(), "esb graflex"
   },
   { "ReFLEX_BEN", "ReFLEX_BEN/tracks/Ben_vs_Knights.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "ReFLEX BEN"
+    StylePtr<accentAlternate>(), "reflex ben"
   },
   { "ReFLEX_REY", "ReFLEX_REY/tracks/Training_Course_Music.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "ReFLEX REY"
+    StylePtr<accentAlternate>(), "reflex rey"
   },
   { "Unstable", "tracks/KyloTheme.wav",
     StylePtr<unstableStyle>(),
     StylePtr<unstableStyle>(),
-    StylePtr<accentAlternate>(), "Unstable"
+    StylePtr<accentAlternate>(), "unstable"
   },
   { "Unstable_v2", "Unstable_v2/tracks/track3.wav",
     StylePtr<unstableStyle>(),
     StylePtr<unstableStyle>(),
-    StylePtr<accentAlternate>(), "Unstable v2"
+    StylePtr<accentAlternate>(), "unstable2"
   },
   { "FOSister", "tracks/JFO12.wav",
     StylePtr<sithUnstableSwing>(),
     StylePtr<sithUnstableSwing>(),
-    StylePtr<accentAlternate>(), "Second Sister"
+    StylePtr<accentAlternate>(), "2nd sister"
   },
   { "Fulcrum", "fulcrum/tracks/track3.wav",
     StylePtr<fulcrumDefault>(),
     StylePtr<fulcrumDefault>(),
-    StylePtr<accentAlternate>(), "Fulcrum"
+    StylePtr<accentAlternate>(), "fulcrum"
   },
   { "Hero_Obi", "Hero_Obi/tracks/BattleOfHeros.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "Hero Obi"
+    StylePtr<accentAlternate>(), "hero obi"
   },
   { "ClassicVillian", "Luke_ESB/tracks/LvsV.wav",
     StylePtr<sithDefault>(),
     StylePtr<sithDefault>(),
-    StylePtr<accentAlternate>(), "Classic Villian"
+    StylePtr<accentAlternate>(), "vader"
   },
   { "Scavengers_Destiny", "Scavengers_Destiny/tracks/track4.wav",
     StylePtr<reyDefault>(),
     StylePtr<reyDefault>(),
-    StylePtr<accentAlternate>(), "Scavengers Destiny"
+    StylePtr<accentAlternate>(), "destiny"
   },
   { "FOBlue", "tracks/JFO1.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "FO Blue"
+    StylePtr<accentAlternate>(), "fo blue"
   },
   { "FOCyan", "tracks/JFO2.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "FO Cyan"
+    StylePtr<accentAlternate>(), "fo cyan"
   },
   { "FOGreen", "tracks/JFO6.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "FO Green"
+    StylePtr<accentAlternate>(), "fo green"
   },
   { "FOIndigo", "tracks/JFO8.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "FO Indigo"
+    StylePtr<accentAlternate>(), "fo indigo"
   },
   { "FOMagenta", "tracks/JFO4.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "FO Magenta"
+    StylePtr<accentAlternate>(), "fo magenta"
   },
   { "FOOrange", "tracks/JFO3.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "FO Orange"
+    StylePtr<accentAlternate>(), "fo orange"
   },
   { "FOPurple", "tracks/JFO14.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "FO Purple"
+    StylePtr<accentAlternate>(), "fo purple"
   },
   { "FORed", "tracks/JFO19.wav",
     StylePtr<sithDefault>(),
     StylePtr<sithDefault>(),
-    StylePtr<accentAlternate>(), "FO Red"
+    StylePtr<accentAlternate>(), "fo red"
   },
   { "FOYellow", "tracks/JFO7.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "FO Yellow"
+    StylePtr<accentAlternate>(), "fo yellow"
   },
   { "EtaanCrystal", "tracks/JF011.wav",
     StylePtr<colorRun>(),
     StylePtr<colorRun>(),
-    StylePtr<accentAlternate>(), "Etaan Crystal"
+    StylePtr<accentAlternate>(), "etaan"
   }
 };
 

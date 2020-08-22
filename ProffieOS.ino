@@ -21,8 +21,8 @@
 // You can have multiple configuration files, and specify which one
 // to use here.
 
-#define CONFIG_FILE "config/creepy_uncle_neo_config.h"
-//#define CONFIG_FILE "config/graflex_neo_config.h"
+//#define CONFIG_FILE "config/creepy_uncle_neo_config.h"
+#define CONFIG_FILE "config/graflex_neo_config.h"
 //#define CONFIG_FILE "config/disciple_neo_config.h"
 //#define CONFIG_FILE "config/fallen_neo_fo_config.h"
 //#define CONFIG_FILE "config/quigon_neo_config.h"
@@ -38,6 +38,7 @@
 // #define CONFIG_FILE "config/toy_saber_config.h"
 // #define CONFIG_FILE "config/proffieboard_v1_test_bench_config.h"
 // #define CONFIG_FILE "config/td_proffieboard_config.h"
+// #define CONFIG_FILE "config/teensy_audio_shield_micom.h"
 
 #ifdef CONFIG_FILE_TEST
 #undef CONFIG_FILE
@@ -134,7 +135,11 @@
 #ifdef TEENSYDUINO
 #include <DMAChannel.h>
 #include <usb_dev.h>
+
+#ifndef USE_TEENSY4
 #include <kinetis.h>
+#endif
+
 #include <i2c_t3.h>
 #include <SD.h>
 
@@ -266,6 +271,7 @@ public:
 #include "common/profiling.h"
 
 uint64_t audio_dma_interrupt_cycles = 0;
+uint64_t pixel_dma_interrupt_cycles = 0;
 uint64_t wav_interrupt_cycles = 0;
 uint64_t loop_cycles = 0;
 
@@ -427,6 +433,9 @@ struct is_same_type<T, T> { static const bool value = true; };
 #include "functions/twist_angle.h"
 #include "functions/layer_functions.h"
 #include "functions/islessthan.h"
+#include "functions/circular_section.h"
+#include "functions/marble.h"
+#include "functions/slice.h"
 
 // transitions
 #include "transitions/fade.h"
@@ -555,7 +564,13 @@ class NoLED;
 #include "styles/length_finder.h"
 
 BladeConfig* current_config = nullptr;
-class BladeBase* GetPrimaryBlade() { return current_config->blade1; }
+class BladeBase* GetPrimaryBlade() {
+#if NUM_BLADES == 0
+  return nullptr;
+#else  
+  return current_config->blade1;
+#endif  
+}
 const char* GetSaveDir() {
   if (!current_config) return "";
   if (!current_config->save_dir) return "";
@@ -996,6 +1011,7 @@ class Commands : public CommandParser {
       // TODO: list cpu usage for various objects.
       float total_cycles =
         (float)(audio_dma_interrupt_cycles +
+	        pixel_dma_interrupt_cycles +
                  wav_interrupt_cycles +
 		 Looper::CountCycles() +
 		 CountProfileCycles());
@@ -1004,6 +1020,9 @@ class Commands : public CommandParser {
       STDOUT.println("%");
       STDOUT.print("Wav reading: ");
       STDOUT.print(wav_interrupt_cycles * 100.0f / total_cycles);
+      STDOUT.println("%");
+      STDOUT.print("Pixel DMA: ");
+      STDOUT.print(pixel_dma_interrupt_cycles * 100.0f / total_cycles);
       STDOUT.println("%");
       STDOUT.print("LOOP: ");
       STDOUT.print(loop_cycles * 100.0f / total_cycles);
@@ -1016,6 +1035,7 @@ class Commands : public CommandParser {
       DumpProfileLocations(total_cycles);
       noInterrupts();
       audio_dma_interrupt_cycles = 0;
+      pixel_dma_interrupt_cycles = 0;
       wav_interrupt_cycles = 0;
       interrupts();
       return true;
@@ -1593,7 +1613,10 @@ void setup() {
 #define PROFFIEOS_STARTUP_DELAY 1000
 #endif
   while (millis() - now < PROFFIEOS_STARTUP_DELAY) {
+#ifndef NO_BATTERY_MONITOR  
     srand((rand() * 917823) ^ LSAnalogRead(batteryLevelPin));
+#endif
+
 #ifdef BLADE_DETECT_PIN
     // Figure out if blade is connected or not.
     // Note that if PROFFIEOS_STARTUP_DELAY is smaller than

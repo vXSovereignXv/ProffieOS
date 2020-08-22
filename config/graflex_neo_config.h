@@ -3,7 +3,7 @@
 #define NUM_BLADES 2
 #define NUM_BUTTONS 3
 #define VOLUME 2000
-const unsigned int maxLedsPerStrip = 193;
+const unsigned int maxLedsPerStrip = 500;
 #define CLASH_THRESHOLD_G 2.0
 #define ENABLE_AUDIO
 #define ENABLE_MOTION
@@ -15,6 +15,7 @@ const unsigned int maxLedsPerStrip = 193;
 #define BLADE_DETECT_PIN 8
 #define IDLE_OFF_TIME 60 * 5 * 1000 //5 minutes
 #define KEEP_SAVEFILES_WHEN_PROGRAMMING
+#define DISABLE_DIAGNOSTIC_COMMANDS
 #endif
 
 #ifdef CONFIG_PROP
@@ -223,19 +224,22 @@ Preset chassis[] = {
 };
 
 BladeConfig blades[] = {
-  { 28.0, WS281XBladePtr<123, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
+  { 28.0, WS281XBladePtr<123, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>, DefaultPinClass, 90000>(),
     WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>()
   , CONFIGARRAY(blade) },
-  { 37.0, WS281XBladePtr<21, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
+  { 37.0, WS281XBladePtr<21, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>, DefaultPinClass, 90000>(),
     WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>()
   , CONFIGARRAY(blade) }, //Short Blade
-  { 47.0, WS281XBladePtr<5, bladePin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
+  { 47.0, WS281XBladePtr<5, bladePin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>, DefaultPinClass, 90000>(),
     WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>()
   , CONFIGARRAY(blade) }, //Blade Plug
-  { 85.0, WS281XBladePtr<131, bladePin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
+  { 85.0, WS281XBladePtr<131, bladePin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>, DefaultPinClass, 90000>(),
     WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>()
-  , CONFIGARRAY(blade) }, //36" Blade
-  { NO_BLADE, WS281XBladePtr<123, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>(), 
+  , CONFIGARRAY(blade) }, //36" 
+  { 115.0, WS281XBladePtr<264, bladePin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>, DefaultPinClass, 90000>(),
+    WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>()
+  , CONFIGARRAY(blade) }, //34.5" KR Blade
+  { NO_BLADE, WS281XBladePtr<123, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>, DefaultPinClass, 90000>(), 
     WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>()
   , CONFIGARRAY(chassis) }, //Chassis
 };
