@@ -23,9 +23,9 @@
 
 //#define CONFIG_FILE "config/creepy_uncle_neo_config.h"
 //#define CONFIG_FILE "config/gl9_neo_config.h"
-//#define CONFIG_FILE "config/graflex_neo_config.h"
+#define CONFIG_FILE "config/graflex_neo_config.h"
 //#define CONFIG_FILE "config/graflex_neo_config_krdebug.h"
-#define CONFIG_FILE "config/disciple_neo_config.h"
+//#define CONFIG_FILE "config/disciple_neo_config.h"
 //#define CONFIG_FILE "config/fallen_neo_fo_config.h"
 //#define CONFIG_FILE "config/quigon_neo_config.h"
 // #define CONFIG_FILE "config/fallen_tri_config.h"
