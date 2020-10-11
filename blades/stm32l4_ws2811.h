@@ -514,7 +514,7 @@ public:
       STDOUT.print("Display memory is not big enough, increase maxLedsPerStrip!");
       return false;
     }
-    return color_buffer_ptr - color_buffer > num_leds_;
+    return color_buffer_ptr - color_buffer >= num_leds_;
   }
 
   void BeginFrame() override {
@@ -609,7 +609,7 @@ private:
   WS2811Engine* engine_;
   int8_t pin_;
   uint8_t frame_num_ = 0;
-  int16_t num_leds_;
+  uint16_t num_leds_;
   int frequency_;
   uint32_t reset_us_;
 

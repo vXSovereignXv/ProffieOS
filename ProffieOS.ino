@@ -41,6 +41,7 @@
 // #define CONFIG_FILE "config/proffieboard_v1_test_bench_config.h"
 // #define CONFIG_FILE "config/td_proffieboard_config.h"
 // #define CONFIG_FILE "config/teensy_audio_shield_micom.h"
+// #define CONFIG_FILE "config/proffieboard_v2_ob4.h"
 
 #ifdef CONFIG_FILE_TEST
 #undef CONFIG_FILE
@@ -144,6 +145,7 @@
 
 #include <i2c_t3.h>
 #include <SD.h>
+#include <SPI.h>
 
 #define INPUT_ANALOG INPUT
 #else
@@ -170,7 +172,6 @@
 
 #endif
 
-#include <SPI.h>
 #include <math.h>
 #include <malloc.h>
 
@@ -327,6 +328,9 @@ int32_t clampi32(int32_t x, int32_t a, int32_t b) {
 int16_t clamptoi16(int32_t x) {
   return clampi32(x, -32768, 32767);
 }
+int32_t clamptoi24(int32_t x) {
+  return clampi32(x, -8388608, 8388607);
+}
 
 #include "common/sin_table.h"
 
@@ -438,6 +442,7 @@ struct is_same_type<T, T> { static const bool value = true; };
 #include "functions/circular_section.h"
 #include "functions/marble.h"
 #include "functions/slice.h"
+#include "functions/mult.h"
 
 // transitions
 #include "transitions/fade.h"
@@ -1265,6 +1270,25 @@ class Commands : public CommandParser {
     }
 #endif // ENABLE_DEVELOPER_COMMANDS
 
+#ifdef ENABLE_DEVELOPER_COMMANDS
+#ifdef HAVE_STM32L4_DMA_GET    
+    if (!strcmp(cmd, "dmamap")) {
+      for (int channel = 0; channel < 16; channel++) {
+	stm32l4_dma_t *dma = stm32l4_dma_get(channel);
+	if (dma) {
+	  STDOUT.print(" DMA");
+	  STDOUT.print( 1 +(channel / 8) );
+	  STDOUT.print("_CH");
+	  STDOUT.print( channel % 8 );
+	  STDOUT.print(" = ");
+	  STDOUT.println(dma->channel >> 4, HEX);
+	}
+      }
+      return true;
+    }
+#endif // HAVE_STM32L4_DMA_GET    
+#endif // ENABLE_DEVELOPER_COMMANDS
+
 #endif  // TEENSYDUINO
 
     return false;
@@ -1610,10 +1634,21 @@ void setup() {
   // Accumulate some entrypy while we wait.
   uint32_t now = millis();
 #ifdef DOSFS_CONFIG_STARTUP_DELAY
-#define PROFFIEOS_STARTUP_DELAY DOSFS_CONFIG_STARTUP_DELAY
+#define PROFFIEOS_SD_STARTUP_DELAY DOSFS_CONFIG_STARTUP_DELAY
 #else
-#define PROFFIEOS_STARTUP_DELAY 1000
+#define PROFFIEOS_SD_STARTUP_DELAY 1000
 #endif
+
+#ifndef CONFIG_STARTUP_DELAY
+#define CONFIG_STARTUP_DELAY 0
+#endif
+
+#if PROFFIEOS_SD_STARTUP_DELAY > CONFIG_STARTUP_DELAY
+#define PROFFIEOS_STARTUP_DELAY PROFFIEOS_SD_STARTUP_DELAY
+#else
+#define PROFFIEOS_STARTUP_DELAY CONFIG_STARTUP_DELAY
+#endif
+
   while (millis() - now < PROFFIEOS_STARTUP_DELAY) {
 #ifndef NO_BATTERY_MONITOR  
     srand((rand() * 917823) ^ LSAnalogRead(batteryLevelPin));
