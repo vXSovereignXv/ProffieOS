@@ -70,6 +70,17 @@
 #undef PROP_TYPE
 #define PROP_TYPE SaberDaigleButtons
 
+EFFECT(dim); // for EFFECT_POWERSAVE
+EFFECT(battery); // for EFFECT_BATTERY_LEVEL
+EFFECT(bmbegin); // for Begin Battle Mode
+EFFECT(bmend); // for End Battle Mode
+EFFECT(vmbegin); // for Begin Volume Menu
+EFFECT(vmend); // for End Volume Menu
+EFFECT(faston); // for EFFECT_FAST_ON
+EFFECT(blstbgn); // for Begin Multi-Blast
+EFFECT(blstend); // for End Multi-Blast
+EFFECT(push); // for Force Push gesture in Battle Mode
+
 // The Saber class implements the basic states and actions
 // for the saber.
 class SaberDaigleButtons : public PropBase {
@@ -304,7 +315,11 @@ public:
 // Multi-Blaster Deflection mode
       case EVENTID(BUTTON_NONE, EVENT_SWING, MODE_ON | BUTTON_POWER):
         swing_blast_ = true;
-        hybrid_font.SB_Blast();
+        if (SFX_blstbgn) {
+          hybrid_font.PlayCommon(&SFX_blstbgn);
+        } else {
+          hybrid_font.SB_Effect(EFFECT_BLAST, 0);
+        }
         return true;
 
 // Lockup
@@ -454,7 +469,11 @@ public:
 // Multiblast
       case EVENTID(BUTTON_AUX, EVENT_CLICK_LONG, MODE_ON):
         swing_blast_ = true;
-        hybrid_font.SB_Blast();
+        if (SFX_blstbgn) {
+          hybrid_font.PlayCommon(&SFX_blstbgn);
+        } else {
+          hybrid_font.SB_Effect(EFFECT_BLAST, 0);
+        }
 	return true;
 // Blaster Deflection
       case EVENTID(BUTTON_AUX, EVENT_CLICK_SHORT, MODE_ON):
@@ -621,7 +640,11 @@ public:
 case EVENTID(BUTTON_AUX2, EVENT_CLICK_SHORT, MODE_ON):
       if(!swing_blast_) {
         swing_blast_ = true;
-        hybrid_font.SB_Blast();
+        if (SFX_blstbgn) {
+          hybrid_font.PlayCommon(&SFX_blstbgn);
+        } else {
+          hybrid_font.SB_Effect(EFFECT_BLAST, 0);
+        }
       }
       else {
         swing_blast_ = false;
