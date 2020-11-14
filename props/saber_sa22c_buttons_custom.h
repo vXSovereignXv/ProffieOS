@@ -14,11 +14,11 @@
 // the various gestures
 //
 // #define SA22C_STAB_ON
-#define SA22C_SWING_ON
+// #define SA22C_SWING_ON
 // #define SA22C_TWIST_ON
-#define SA22C_THRUST_ON
-#define SA22C_TWIST_OFF
-#define SA22C_FORCE_PUSH
+// #define SA22C_THRUST_ON
+// #define SA22C_TWIST_OFF
+// #define SA22C_FORCE_PUSH
 //
 // #define SA22C_FORCE_PUSH_LENGTH 5
 // Allows for adjustment to Push gesture length in millis needed to trigger Force Push
@@ -27,7 +27,7 @@
 // If you want the gesture ignition to ALSO enter battle mode automatically
 // on ignition, add this define
 //
-#define GESTURE_AUTO_BATTLE_MODE
+// #define GESTURE_AUTO_BATTLE_MODE
 //
 // Battle mode by fett263
 //
@@ -82,6 +82,9 @@
 // Volume DOWN - click while in Volume Menu
 // Exit Volume Menu - Menu hold + clash while OFF
 // Battery Level - triple click while OFF
+// Power Save - triple click while ON
+// MULTI_PHASE Next Preset - quad-click while on
+// MULTI_PHASE Previous Preset - quad-click and hold while on
 //
 //
 // 2 Button:
@@ -108,13 +111,19 @@
 // Enter VOLUME MENU - long click while OFF
 // Volume down - short click while OFF and in VOLUME MENU
 // Battery level - hold while off
+// Power Save - hold Aux and click PWR while ON (pointing up) to use Power Save (requires style)
+// MULTI_PHASE Next Preset - hold AUX and TWIST while ON (use define to enable)
+// MULTI_PHASE Previous Preset - hold PWR and TWIST while ON (use define to enable)
 //
 // 3 Button: Same as two button except for the following
+// AUX
+// Volume up - short click while OFF and in VOLUME MENU
 //
 // AUX2
 // Lightning Block - hold while ON
 // Battle Mode - double-click and hold while on
 // Previous Preset - short click while OFF
+// Volume down - short click while OFF and in VOLUME MENU
 
 
 #ifndef PROPS_SABER_SA22C_BUTTONS_H
@@ -352,6 +361,13 @@ public:
       }
     }
     return true;
+  
+// Power Save 1 Button
+#if NUM_BUTTONS == 1
+  case EVENTID(BUTTON_POWER, EVENT_THIRD_CLICK_SHORT, MODE_ON):
+    SaberBase::DoEffect(EFFECT_POWERSAVE, 0);
+    return true;
+#endif
 
   // Auto Lockup Mode
   case EVENTID(BUTTON_NONE, EVENT_CLASH, MODE_ON):
@@ -380,15 +396,47 @@ public:
     return true;
 
   // Gesture Controls
+#ifdef SA22C_MULTIPHASE
+  //Multiphase
+  #if NUM_BUTTONS == 1
+    case EVENTID(BUTTON_POWER, EVENT_FOURTH_CLICK_SHORT, MODE_ON):
+  #else
+    case EVENTID(BUTTON_NONE, EVENT_TWIST, MODE_ON | BUTTON_AUX):
+  #endif
+      // Delay twist events to prevent false trigger from over twisting
+      if (millis() - last_twist_ > 2000) {
+        last_twist_ = millis();
+        Off();
+        next_preset();
+        FastOn();
+      }
+      return true;
+
+  #if NUM_BUTTONS == 1
+    case EVENTID(BUTTON_POWER, EVENT_FOURTH_HELD, MODE_ON):
+  #else
+    case EVENTID(BUTTON_NONE, EVENT_TWIST, MODE_ON | BUTTON_POWER):
+  #endif
+      // Delay twist events to prevent false trigger from over twisting
+      if (millis() - last_twist_ > 2000) {
+        last_twist_ = millis();
+        Off();
+        previous_preset();
+        FastOn();
+      }
+      return true;
+#endif
 #ifdef SA22C_SWING_ON
   case EVENTID(BUTTON_NONE, EVENT_SWING, MODE_OFF):
     // Due to motion chip startup on boot creating false ignition we delay Swing On at boot for 3000ms
-    if (millis() > 3000) {
-      FastOn();
+    if (!mode_volume_) {
+      if (millis() > 3000) {
+        FastOn();
 #ifdef GESTURE_AUTO_BATTLE_MODE
-      STDOUT.println("Entering Battle Mode");
-      battle_mode_ = true;
+        STDOUT.println("Entering Battle Mode");
+        battle_mode_ = true;
 #endif
+      }
     }
     return true;
 #endif
@@ -396,14 +444,16 @@ public:
 #ifdef SA22C_TWIST_ON
   case EVENTID(BUTTON_NONE, EVENT_TWIST, MODE_OFF):
     // Delay twist events to prevent false trigger from over twisting
-    if (millis() - last_twist_ > 2000 &&
-        millis() - saber_off_time_ > 1000) {
-      FastOn();
+    if (!mode_volume_) {
+      if (millis() - last_twist_ > 2000 &&
+          millis() - saber_off_time_ > 1000) {
+        FastOn();
 #ifdef GESTURE_AUTO_BATTLE_MODE
-      STDOUT.println("Entering Battle Mode");
-      battle_mode_ = true;
+        STDOUT.println("Entering Battle Mode");
+        battle_mode_ = true;
 #endif
-      last_twist_ = millis();
+        last_twist_ = millis();
+      }
     }
     return true;
 #endif
@@ -422,24 +472,28 @@ public:
 
 #ifdef SA22C_STAB_ON
       case EVENTID(BUTTON_NONE, EVENT_STAB, MODE_OFF):
-        if (millis() - saber_off_time_ > 1000) {
-          FastOn();
+        if (!mode_volume_) {
+          if (millis() - saber_off_time_ > 1000) {
+            FastOn();
 #ifdef GESTURE_AUTO_BATTLE_MODE
-          STDOUT.println("Entering Battle Mode");
-          battle_mode_ = true;
+            STDOUT.println("Entering Battle Mode");
+            battle_mode_ = true;
 #endif
+          }
         }
         return true;
 #endif
 
 #ifdef SA22C_THRUST_ON
       case EVENTID(BUTTON_NONE, EVENT_THRUST, MODE_OFF):
-        if (millis() - saber_off_time_ > 1000) {
-          FastOn();
+        if (!mode_volume_) {
+          if (millis() - saber_off_time_ > 1000) {
+            FastOn();
 #ifdef GESTURE_AUTO_BATTLE_MODE
           STDOUT.println("Entering Battle Mode");
           battle_mode_ = true;
 #endif
+          }
         }
         return true;
 #endif
@@ -464,7 +518,9 @@ public:
     if (!mode_volume_) {
       On();
     } else {
+#if NUM_BUTTONS < 2
       ChangeVolume(true);
+#endif
     }
     return true;
 
@@ -488,7 +544,11 @@ public:
     if (!mode_volume_) {
       next_preset();
     } else {
+#if NUM_BUTTONS < 2
       ChangeVolume(false);
+#else
+      ChangeVolume(true);
+#endif
     }
     return true;
 
@@ -501,6 +561,9 @@ public:
 #endif
     if (!mode_volume_) {
       previous_preset();
+    }
+    else {
+      ChangeVolume(false);
     }
     return true;
 
@@ -557,11 +620,18 @@ public:
     SaberBase::DoForce();
     return true;
   // 2 and 3 button color change
-#ifndef DISABLE_COLOR_CHANGE
   case EVENTID(BUTTON_AUX, EVENT_FIRST_CLICK_SHORT, MODE_ON | BUTTON_POWER):
-    ToggleColorChangeMode();
-    return true;
+    if (fusor.angle1() >  M_PI / 3) {
+        SaberBase::DoEffect(EFFECT_POWERSAVE, 0);
+    } else {
+#ifndef DISABLE_COLOR_CHANGE
+        ToggleColorChangeMode();
 #endif
+#ifdef DISABLE_COLOR_CHANGE
+        SaberBase::DoEffect(EFFECT_POWERSAVE, 0);
+#endif
+    }
+    return true;
 #endif
 
 // Blaster Deflection
@@ -688,22 +758,23 @@ public:
   // 2 and 3 button
   case EVENTID(BUTTON_AUX, EVENT_FIRST_CLICK_LONG, MODE_OFF):
 #endif
-    if (!mode_volume_) {
-      mode_volume_ = true;
-      if (SFX_vmbegin) {
-        hybrid_font.PlayCommon(&SFX_vmbegin);
-      } else {
-        beeper.Beep(0.5, 3000);
-      }
-      STDOUT.println("Enter Volume Menu");
-    } else {
+    if (mode_volume_) {
       mode_volume_ = false;
-      if (SFX_vmend) {
-        hybrid_font.PlayCommon(&SFX_vmend);
-      } else {
-        beeper.Beep(0.5, 3000);
+      if (!hybrid_font.PlayPolyphonic(&SFX_menter)) {
+        beeper.Beep(0.20, 2000.0);
+        beeper.Beep(0.20, 1414.2);
+        beeper.Beep(0.20, 1000.0);
       }
       STDOUT.println("Exit Volume Menu");
+    }
+    else {
+      mode_volume_ = true;
+      if (!hybrid_font.PlayPolyphonic(&SFX_mexit)) {
+        beeper.Beep(0.20, 1000.0);
+        beeper.Beep(0.20, 1414.2);
+        beeper.Beep(0.20, 2000.0);
+      }
+      STDOUT.println("Enter Volume Menu");
     }
     return true;
 
@@ -715,11 +786,7 @@ public:
   // 2 and 3 button
   case EVENTID(BUTTON_AUX, EVENT_FIRST_HELD_LONG, MODE_OFF):
 #endif
-    talkie.SayDigit((int)floorf(battery_monitor.battery()));
-    talkie.Say(spPOINT);
-    talkie.SayDigit(((int)floorf(battery_monitor.battery() * 10)) % 10);
-    talkie.SayDigit(((int)floorf(battery_monitor.battery() * 100)) % 10);
-    talkie.Say(spVOLTS);
+    SaberBase::DoEffect(EFFECT_BATTERY_LEVEL, 0);
     return true;
 
 #ifdef BLADE_DETECT_PIN
@@ -737,6 +804,12 @@ public:
         blade_detected_ = false;
         FindBladeAgain();
         SaberBase::DoBladeDetect(false);
+        return true;
+#endif
+#ifndef BLADE_DETECT_PIN
+      case EVENTID(BUTTON_NONE, EVENT_TWIST, MODE_OFF | BUTTON_POWER):
+        FindBladeAgain();
+        SaberBase::DoNewFont();
         return true;
 #endif
 

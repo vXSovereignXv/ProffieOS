@@ -88,47 +88,47 @@ Preset blade[] = {
     StylePtr<chassisOff>(), "Senate Majority V2"
   },
   { "FOBlue", "tracks/JFO1.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "FOBlue"
   },
   { "FOCyan", "tracks/JFO2.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "FOCyan"
   },
   { "FOGreen", "tracks/JFO6.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "FOGreen"
   },
   { "FOIndigo", "tracks/JFO8.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "FOIndigo"
   },
   { "FOMagenta", "tracks/JFO4.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "FOMagenta"
   },
   { "FOOrange", "tracks/JFO3.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "FOOrange"
   },
   { "FOPurple", "tracks/JFO14.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "FOPurple"
   },
   { "FORed", "tracks/JFO19.wav",
-    StylePtr<sithDefault>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "FORed"
   },
   { "FOYellow", "tracks/JFO7.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "FOYellow"
   },
@@ -201,48 +201,48 @@ Preset krBlade[] = {
     StylePtr<chassisOff>(), "Senate Majority V2"
   },
   { "FOBlue", "tracks/JFO1.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(), "FOBlue"
   },
   { "FOCyan", "tracks/JFO2.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(), "FOCyan"
   },
   { "FOGreen", "tracks/JFO6.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(), "FOGreen"
   },
   { "FOIndigo", "tracks/JFO8.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(), "FOIndigo"
   },
   { "FOMagenta", "tracks/JFO4.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(), "FOMagenta"
   },
   { "FOOrange", "tracks/JFO3.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(), "FOOrange"
   },
   { "FOPurple", "tracks/JFO14.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(), "FOPurple"
   },
   { "FORed", "tracks/JFO19.wav",
-    StylePtr<sithDefault>(),
-    StylePtr<sithDefault>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(), "FORed"
   },
   { "FOYellow", "tracks/JFO7.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(), "FOYellow"
   },
   { "EtaanCrystal", "tracks/JF011.wav",
@@ -314,49 +314,49 @@ Preset chassis[] = {
     StylePtr<senateMajority>(), "Senate Majority V2"
   },
   { "FOBlue", "tracks/JFO1.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOBlue"
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOBlue"
   },
   { "FOCyan", "tracks/JFO2.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOCyan"
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOCyan"
   },
   { "FOGreen", "tracks/JFO6.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOGreen"
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOGreen"
   },
   { "FOIndigo", "tracks/JFO8.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOIndigo"
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOIndigo"
   },
   { "FOMagenta", "tracks/JFO4.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOMagenta"
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOMagenta"
   },
   { "FOOrange", "tracks/JFO3.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOOrange"
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOOrange"
   },
   { "FOPurple", "tracks/JFO14.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOPurple"
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOPurple"
   },
   { "FORed", "tracks/JFO19.wav",
-    StylePtr<sithDefault>(),
-    StylePtr<sithDefault>(),
-    StylePtr<sithDefault>(), "FORed"
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FORed"
   },
   { "FOYellow", "tracks/JFO7.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOYellow"
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOYellow"
   },
   { "EtaanCrystal", "tracks/JF011.wav",
     StylePtr<colorRun>(),
