@@ -101,55 +101,55 @@ Preset blade[] = {
     StylePtr<buttonPulse>(), "Senate Majority V2"
   },
   { "FOBlue", "tracks/JFO1.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(),
     StylePtr<buttonPulse>(), "FOBlue"
   },
   { "FOCyan", "tracks/JFO2.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(),
     StylePtr<buttonPulse>(), "FOCyan"
   },
   { "FOGreen", "tracks/JFO6.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(),
     StylePtr<buttonPulse>(), "FOGreen"
   },
   { "FOIndigo", "tracks/JFO8.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(),
     StylePtr<buttonPulse>(), "FOIndigo"
   },
   { "FOMagenta", "tracks/JFO4.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(),
     StylePtr<buttonPulse>(), "FOMagenta"
   },
   { "FOOrange", "tracks/JFO3.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(),
     StylePtr<buttonPulse>(), "FOOrange"
   },
   { "FOPurple", "tracks/JFO14.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(),
     StylePtr<buttonPulse>(), "FOPurple"
   },
   { "FORed", "tracks/JFO19.wav",
-    StylePtr<sithDefault>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(),
     StylePtr<buttonPulse>(), "FORed"
   },
   { "FOYellow", "tracks/JFO7.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(),
     StylePtr<buttonPulse>(), "FOYellow"
@@ -236,56 +236,56 @@ Preset krBlade[] = {
     StylePtr<buttonPulse>(), "Senate Majority V2"
   },
   { "FOBlue", "tracks/JFO1.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<buttonPulse>(), "FOBlue"
   },
   { "FOCyan", "tracks/JFO2.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<buttonPulse>(), "FOCyan"
   },
   { "FOGreen", "tracks/JFO6.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<buttonPulse>(), "FOGreen"
   },
   { "FOIndigo", "tracks/JFO8.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<buttonPulse>(), "FOIndigo"
   },
   { "FOMagenta", "tracks/JFO4.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<buttonPulse>(), "FOMagenta"
   },
   { "FOOrange", "tracks/JFO3.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<buttonPulse>(), "FOOrange"
   },
   { "FOPurple", "tracks/JFO14.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<buttonPulse>(), "FOPurple"
   },
   { "FORed", "tracks/JFO19.wav",
-    StylePtr<sithDefault>(),
-    StylePtr<sithDefault>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<buttonPulse>(), "FORed"
   },
   { "FOYellow", "tracks/JFO7.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<buttonPulse>(), "FOYellow"
   },
@@ -300,135 +300,136 @@ Preset krBlade[] = {
 Preset chassis[] = {
   { "Luke_ESB", "Luke_ESB/tracks/LvsV.wav",
     StylePtr<mainBladeStyle>(),
+    StylePtr<buttonPulse>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<buttonPulse>(), "Luke_ESB"
+    StylePtr<mainBladeStyle>(), "Luke_ESB"
   },
   { "Luke_RoTJ", "Luke_RoTJ/tracks/Final_Duel.wav",
     StylePtr<mainBladeStyle>(),
+    StylePtr<buttonPulse>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<buttonPulse>(), "Luke_RoTJ"
+    StylePtr<mainBladeStyle>(), "Luke_RoTJ"
   },
   { "ReFLEX_BEN", "ReFLEX_BEN/tracks/Ben_vs_Knights.wav",
     StylePtr<mainBladeStyle>(),
+    StylePtr<buttonPulse>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<buttonPulse>(), "ReFLEX_BEN"
+    StylePtr<mainBladeStyle>(), "ReFLEX_BEN"
   },
   { "ReFLEX_REY", "ReFLEX_REY/tracks/Training_Course_Music.wav",
     StylePtr<mainBladeStyle>(),
+    StylePtr<buttonPulse>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<buttonPulse>(), "ReFLEX_REY"
+    StylePtr<mainBladeStyle>(), "ReFLEX_REY"
   },
   { "Unstable", "tracks/KyloTheme.wav",
     StylePtr<unstableStyle>(),
+    StylePtr<buttonPulse>(),
     StylePtr<unstableStyle>(),
-    StylePtr<unstableStyle>(),
-    StylePtr<buttonPulse>(), "Unstable"
+    StylePtr<unstableStyle>(), "Unstable"
   },
   { "Unstable_v2", "Unstable_v2/tracks/track3.wav",
     StylePtr<unstableStyle>(),
+    StylePtr<buttonPulse>(),
     StylePtr<unstableStyle>(),
-    StylePtr<unstableStyle>(),
-    StylePtr<buttonPulse>(), "Unstable_v2"
+    StylePtr<unstableStyle>(), "Unstable_v2"
   },
   { "FOSister", "tracks/JFO12.wav",
     StylePtr<sithUnstableSwing>(),
+    StylePtr<buttonPulse>(),
     StylePtr<sithUnstableSwing>(),
-    StylePtr<sithUnstableSwing>(),
-    StylePtr<buttonPulse>(), "FOSister"
+    StylePtr<sithUnstableSwing>(), "FOSister"
   },
   { "Fulcrum", "fulcrum/tracks/track3.wav",
     StylePtr<fulcrumDefault>(),
+    StylePtr<buttonPulse>(),
     StylePtr<fulcrumDefault>(),
-    StylePtr<fulcrumDefault>(),
-    StylePtr<buttonPulse>(), "Fulcrum"
+    StylePtr<fulcrumDefault>(), "Fulcrum"
   },
   { "Hero_Obi", "Hero_Obi/tracks/BattleOfHeros.wav",
     StylePtr<mainBladeStyle>(),
+    StylePtr<buttonPulse>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<buttonPulse>(), "Hero_Obi"
+    StylePtr<mainBladeStyle>(), "Hero_Obi"
   },
   { "ClassicVillian", "Luke_ESB/tracks/LvsV.wav",
     StylePtr<sithDefault>(),
+    StylePtr<buttonPulse>(),
     StylePtr<sithDefault>(),
-    StylePtr<sithDefault>(),
-    StylePtr<buttonPulse>(), "ClassicVillian"
+    StylePtr<sithDefault>(), "ClassicVillian"
   },
   { "Scavengers_Destiny", "Scavengers_Destiny/tracks/track4.wav",
     StylePtr<reyDefault>(),
+    StylePtr<buttonPulse>(),
     StylePtr<reyDefault>(),
-    StylePtr<reyDefault>(),
-    StylePtr<buttonPulse>(), "Scavengers_Destiny"
+    StylePtr<reyDefault>(), "Scavengers_Destiny"
   },
   { "Senate Majority V2", "Senate Majority V2/tracks/Palpatheme.wav",
     StylePtr<senateMajority>(),
+    StylePtr<buttonPulse>(),
     StylePtr<senateMajority>(),
-    StylePtr<senateMajority>(),
-    StylePtr<buttonPulse>(), "Senate Majority V2"
+    StylePtr<senateMajority>(), "Senate Majority V2"
   },
   { "FOBlue", "tracks/JFO1.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<buttonPulse>(), "FOBlue"
+    StylePtr<calBladeStyle>(),
+    StylePtr<buttonPulse>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOBlue"
   },
   { "FOCyan", "tracks/JFO2.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<buttonPulse>(), "FOCyan"
+    StylePtr<calBladeStyle>(),
+    StylePtr<buttonPulse>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOCyan"
   },
   { "FOGreen", "tracks/JFO6.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<buttonPulse>(), "FOGreen"
+    StylePtr<calBladeStyle>(),
+    StylePtr<buttonPulse>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOGreen"
   },
   { "FOIndigo", "tracks/JFO8.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<buttonPulse>(), "FOIndigo"
+    StylePtr<calBladeStyle>(),
+    StylePtr<buttonPulse>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOIndigo"
   },
   { "FOMagenta", "tracks/JFO4.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<buttonPulse>(), "FOMagenta"
+    StylePtr<calBladeStyle>(),
+    StylePtr<buttonPulse>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOMagenta"
   },
   { "FOOrange", "tracks/JFO3.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<buttonPulse>(), "FOOrange"
+    StylePtr<calBladeStyle>(),
+    StylePtr<buttonPulse>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),"FOOrange"
   },
   { "FOPurple", "tracks/JFO14.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<buttonPulse>(), "FOPurple"
+    StylePtr<calBladeStyle>(),
+    StylePtr<buttonPulse>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOPurple"
   },
   { "FORed", "tracks/JFO19.wav",
-    StylePtr<sithDefault>(),
-    StylePtr<sithDefault>(),
-    StylePtr<sithDefault>(),
-    StylePtr<buttonPulse>(), "FORed"
+    StylePtr<calBladeStyle>(),
+    StylePtr<buttonPulse>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FORed"
   },
   { "FOYellow", "tracks/JFO7.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<buttonPulse>(), "FOYellow"
+    StylePtr<calBladeStyle>(),
+    StylePtr<buttonPulse>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOYellow"
   },
   { "EtaanCrystal", "tracks/JF011.wav",
     StylePtr<colorRun>(),
+    StylePtr<buttonPulse>(),
     StylePtr<colorRun>(),
-    StylePtr<colorRun>(),
-    StylePtr<buttonPulse>(), "EtaanCrystal"
+    StylePtr<colorRun>()
+    , "EtaanCrystal"
   }
 };
 
@@ -459,9 +460,9 @@ BladeConfig blades[] = {
     SimpleBladePtr<CreeXPE2BlueTemplate<18000>, NoLED, NoLED, NoLED, bladePowerPin6, -1, -1, -1>()
   , CONFIGARRAY(krBlade) }, //34.5" KR Blade
   { NO_BLADE, WS281XBladePtr<124, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
+    SimpleBladePtr<CreeXPE2BlueTemplate<18000>, NoLED, NoLED, NoLED, bladePowerPin6, -1, -1, -1>(),
     SubBlade(0, 4, WS281XBladePtr<6, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>()), 
-    SubBlade(5, 5, NULL),
-    SimpleBladePtr<CreeXPE2BlueTemplate<18000>, NoLED, NoLED, NoLED, bladePowerPin6, -1, -1, -1>()
+    SubBlade(5, 5, NULL)
   , CONFIGARRAY(chassis) }, //Chassis
 };
 #endif

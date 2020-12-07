@@ -70,16 +70,16 @@
 // Lightning Block - double click and hold while ON
 // Melt - hold + thust forward clash while ON
 // Drag - hold + hit clash while ON pointing the blade tip down
-// Blaster Blocks - short click/double click/triple click while on
+// Blaster Blocks - short click/double click while on
 // Multi-Blast - hold while swinging for one second and release
 //               to trigger blaster block, swing saber while in multi-blast mode
 //               to exit, hold while swinging for one second and release
 // Battle Mode - triple-click and hold while on
-// Force Effects - hold + twist the hilt while ON (while pointing up)
+// Quote - hold + twist the hilt while ON (while pointing up)
 // Color Change mode - hold + twist the hilt while ON (pointing down)
 // Enter Volume - Menu hold + clash while OFF
-// Volume UP - hold and release while in Volume Menu
-// Volume DOWN - click while in Volume Menu
+// Volume UP - click while in Volume Menu
+// Volume DOWN - hold and release while in Volume Menu
 // Exit Volume Menu - Menu hold + clash while OFF
 // Battery Level - triple click while OFF
 // Power Save - triple click while ON
@@ -93,7 +93,7 @@
 // Activate - short click while OFF
 // Play/Stop Music - hold and release while OFF
 // Turn off blade - hold and wait till blade is off while ON
-// Force Effects - double click while ON
+// Quote - double click while ON
 // Volume UP - short click while OFF and in VOLUME MENU
 // Prev Preset - hold and wait while OFF
 // Color Change mode - hold + toggle AUX while ON
@@ -199,6 +199,7 @@ EFFECT(faston); // for EFFECT_FAST_ON
 EFFECT(blstbgn); // for Begin Multi-Blast
 EFFECT(blstend); // for End Multi-Blast
 EFFECT(push); // for Force Push gesture in Battle Mode
+EFFECT(quote); // for Quote
 
 // The Saber class implements the basic states and actions
 // for the saber.
@@ -502,11 +503,12 @@ public:
       case EVENTID(BUTTON_NONE, EVENT_PUSH, MODE_ON):
         if (FORCE_PUSH_CONDITION &&
             millis() - last_push_ > 2000) {
-          if (SFX_push) {
-            hybrid_font.PlayCommon(&SFX_push);
-          } else {
-            hybrid_font.DoEffect(EFFECT_FORCE, 0);
-          }
+          //if (SFX_push) {
+            //hybrid_font.PlayCommon(&SFX_push);
+          //} else {
+            SaberBase::DoForce();
+            //hybrid_font.DoEffect(EFFECT_FORCE, 0);
+          //}
           last_push_ = millis();
         }
         return true;
@@ -518,7 +520,7 @@ public:
     if (!mode_volume_) {
       On();
     } else {
-#if NUM_BUTTONS < 2
+#if NUM_BUTTONS < 3
       ChangeVolume(true);
 #endif
     }
@@ -544,7 +546,7 @@ public:
     if (!mode_volume_) {
       next_preset();
     } else {
-#if NUM_BUTTONS < 2
+#if NUM_BUTTONS < 3
       ChangeVolume(false);
 #else
       ChangeVolume(true);
@@ -608,16 +610,16 @@ public:
     if (accel_.x < -0.15) {
       ToggleColorChangeMode();
     } else {
-      SaberBase::DoForce();
+      hybrid_font.PlayCommon(&SFX_quote);
     }
 #else
-    SaberBase::DoForce();
+    hybrid_font.PlayCommon(&SFX_quote);
 #endif
     return true;
 #else
   // 2 and 3 button Force effect
   case EVENTID(BUTTON_POWER, EVENT_SECOND_SAVED_CLICK_SHORT, MODE_ON):
-    SaberBase::DoForce();
+    hybrid_font.PlayCommon(&SFX_quote);
     return true;
   // 2 and 3 button color change
   case EVENTID(BUTTON_AUX, EVENT_FIRST_CLICK_SHORT, MODE_ON | BUTTON_POWER):
@@ -639,7 +641,6 @@ public:
   // 1 button
   case EVENTID(BUTTON_POWER, EVENT_FIRST_SAVED_CLICK_SHORT, MODE_ON):
   case EVENTID(BUTTON_POWER, EVENT_SECOND_SAVED_CLICK_SHORT, MODE_ON):
-  case EVENTID(BUTTON_POWER, EVENT_THIRD_CLICK_SHORT, MODE_ON):
 #else
   // 2 and 3 button
   case EVENTID(BUTTON_AUX, EVENT_FIRST_SAVED_CLICK_SHORT, MODE_ON):

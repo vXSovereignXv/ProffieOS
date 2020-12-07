@@ -67,6 +67,16 @@ Preset blade[] = {
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "Fulcrum"
   },
+  { "Commander_Tano", "Commander_Tano/tracks/track2.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "commander tano"
+  },
+  { "The_JEDI", "The_JEDI/tracks/track1.wav",
+    StylePtr<fulcrumDefault>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "the jedi"
+  },
   { "Hero_Obi", "Hero_Obi/tracks/BattleOfHeros.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
@@ -81,6 +91,26 @@ Preset blade[] = {
     StylePtr<reyDefault>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "Scavengers_Destiny"
+  },
+  { "Blind_Cowboy", "Blind_Cowboy/tracks/track2.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "blind cowboy"
+  },
+  { "Staple_Sword", "Staple_Sword/tracks/track1.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "staple sword"
+  },
+  { "Dyad_Kylo", "Dyad_Kylo/tracks/track2.wav",
+    StylePtr<unstableStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "dyad kylo"
+  },
+  { "Dyad_Rey", "Dyad_Rey/tracks/track4.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "dyad rey"
   },
   { "Senate Majority V2", "Senate Majority V2/tracks/Palpatheme.wav",
     StylePtr<senateMajority>(),
@@ -136,6 +166,16 @@ Preset blade[] = {
     StylePtr<colorRun>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "EtaanCrystal"
+  },
+  { "Ghost_Sucker", "Ghost_Sucker/tracks/track5.wav",
+    StylePtr<ghostSucker>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "ghost sucker"
+  },
+  { "XMAS", "XMAS/tracks/track1.wav",
+    StylePtr<xmas>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "x-mas"
   }
 };
 
@@ -180,6 +220,16 @@ Preset krBlade[] = {
     StylePtr<fulcrumDefault>(),
     StylePtr<chassisOff>(), "Fulcrum"
   },
+  { "Commander_Tano", "Commander_Tano/tracks/track2.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(), "commander tano"
+  },
+  { "The_JEDI", "The_JEDI/tracks/track1.wav",
+    StylePtr<fulcrumDefault>(),
+    StylePtr<fulcrumDefault>(),
+    StylePtr<chassisOff>(), "the jedi"
+  },
   { "Hero_Obi", "Hero_Obi/tracks/BattleOfHeros.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
@@ -194,6 +244,26 @@ Preset krBlade[] = {
     StylePtr<reyDefault>(),
     StylePtr<reyDefault>(),
     StylePtr<chassisOff>(), "Scavengers_Destiny"
+  },
+  { "Blind_Cowboy", "Blind_Cowboy/tracks/track2.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(), "blind cowboy"
+  },
+  { "Staple_Sword", "Staple_Sword/tracks/track1.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(), "staple sword"
+  },
+  { "Dyad_Kylo", "Dyad_Kylo/tracks/track2.wav",
+    StylePtr<unstableStyle>(),
+    StylePtr<unstableStyle>(),
+    StylePtr<chassisOff>(), "dyad kylo"
+  },
+  { "Dyad_Rey", "Dyad_Rey/tracks/track4.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(), "dyad rey"
   },
   { "Senate Majority V2", "Senate Majority V2/tracks/Palpatheme.wav",
     StylePtr<senateMajority>(),
@@ -249,6 +319,16 @@ Preset krBlade[] = {
     StylePtr<colorRun>(),
     StylePtr<colorRun>(),
     StylePtr<chassisOff>(), "EtaanCrystal"
+  },
+  { "Ghost_Sucker", "Ghost_Sucker/tracks/track5.wav",
+    StylePtr<ghostSucker>(),
+    StylePtr<ghostSucker>(),
+    StylePtr<chassisOff>(), "ghost sucker"
+  },
+  { "XMAS", "XMAS/tracks/track1.wav",
+    StylePtr<xmas>(),
+    StylePtr<xmas>(),
+    StylePtr<chassisOff>(), "x-mas"
   }
 };
 
@@ -293,6 +373,16 @@ Preset chassis[] = {
     StylePtr<fulcrumDefault>(),
     StylePtr<fulcrumDefault>(), "Fulcrum"
   },
+  { "Commander_Tano", "Commander_Tano/tracks/track2.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(), "commander tano"
+  },
+  { "The_JEDI", "The_JEDI/tracks/track1.wav",
+    StylePtr<fulcrumDefault>(),
+    StylePtr<fulcrumDefault>(),
+    StylePtr<fulcrumDefault>(), "the jedi"
+  },
   { "Hero_Obi", "Hero_Obi/tracks/BattleOfHeros.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
@@ -307,6 +397,26 @@ Preset chassis[] = {
     StylePtr<reyDefault>(),
     StylePtr<reyDefault>(),
     StylePtr<reyDefault>(), "Scavengers_Destiny"
+  },
+  { "Blind_Cowboy", "Blind_Cowboy/tracks/track2.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(), "blind cowboy"
+  },
+  { "Staple_Sword", "Staple_Sword/tracks/track1.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(), "staple sword"
+  },
+  { "Dyad_Kylo", "Dyad_Kylo/tracks/track2.wav",
+    StylePtr<unstableStyle>(),
+    StylePtr<unstableStyle>(),
+    StylePtr<unstableStyle>(), "dyad kylo"
+  },
+  { "Dyad_Rey", "Dyad_Rey/tracks/track4.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(), "dyad rey"
   },
   { "Senate Majority V2", "Senate Majority V2/tracks/Palpatheme.wav",
     StylePtr<senateMajority>(),
@@ -362,23 +472,33 @@ Preset chassis[] = {
     StylePtr<colorRun>(),
     StylePtr<colorRun>(),
     StylePtr<colorRun>(), "EtaanCrystal"
+  },
+  { "Ghost_Sucker", "Ghost_Sucker/tracks/track5.wav",
+    StylePtr<ghostSucker>(),
+    StylePtr<ghostSucker>(),
+    StylePtr<ghostSucker>(), "ghost sucker"
+  },
+  { "XMAS", "XMAS/tracks/track1.wav",
+    StylePtr<xmas>(),
+    StylePtr<xmas>(),
+    StylePtr<xmas>(), "x-mas"
   }
 };
 
 BladeConfig blades[] = {
-  { 28.0, SubBlade(0, 122, WS281XBladePtr<124, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>()),
+  { 33.0, SubBlade(0, 122, WS281XBladePtr<124, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>()),
     SubBlade(123, 123, NULL),
     WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>()
   , CONFIGARRAY(blade) },
-  { 37.0, SubBlade(0, 20, WS281XBladePtr<22, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>()),
+  { 47.0, SubBlade(0, 20, WS281XBladePtr<22, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>()),
     SubBlade(21, 21, NULL),
     WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>()
   , CONFIGARRAY(blade) }, //Short Blade
-  { 47.0, SubBlade(0, 4, WS281XBladePtr<6, bladePin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>()),
+  { 57.0, SubBlade(0, 4, WS281XBladePtr<6, bladePin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>()),
     SubBlade(5, 5, NULL),
     WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>()
   , CONFIGARRAY(blade) }, //Blade Plug
-  { 85.0, SubBlade(0, 130, WS281XBladePtr<132, bladePin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>()),
+  { 101.0, SubBlade(0, 130, WS281XBladePtr<132, bladePin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>()),
     SubBlade(131, 131, NULL),
     WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>()
   , CONFIGARRAY(blade) }, //36" 

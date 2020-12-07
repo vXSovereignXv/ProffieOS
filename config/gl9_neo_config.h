@@ -27,15 +27,25 @@ const unsigned int maxLedsPerStrip = 396;
 #include "nd_blade_config.h"
 
 Preset blade[] = {
-  { "Luke_ESB", "Luke_ESB/tracks/LvsV.wav",
+  { "Royalty", "Royalty/tracks/track1.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
-    StylePtr<chassisOff>(), "Luke_ESB"
+    StylePtr<chassisOff>(), "royalty"
   },
   { "Luke_RoTJ", "Luke_RoTJ/tracks/Final_Duel.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "Luke_RoTJ"
+  },
+  { "Grumpy_Uncle", "Grumpy_Uncle/tracks/track3.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "grumpy uncle"
+  },
+  { "Luke_ESB", "Luke_ESB/tracks/LvsV.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "Luke_ESB"
   },
   { "ReFLEX_BEN", "ReFLEX_BEN/tracks/Ben_vs_Knights.wav",
     StylePtr<mainBladeStyle>(),
@@ -88,47 +98,47 @@ Preset blade[] = {
     StylePtr<chassisOff>(), "Senate Majority V2"
   },
   { "FOBlue", "tracks/JFO1.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "FOBlue"
   },
   { "FOCyan", "tracks/JFO2.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "FOCyan"
   },
   { "FOGreen", "tracks/JFO6.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "FOGreen"
   },
   { "FOIndigo", "tracks/JFO8.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "FOIndigo"
   },
   { "FOMagenta", "tracks/JFO4.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "FOMagenta"
   },
   { "FOOrange", "tracks/JFO3.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "FOOrange"
   },
   { "FOPurple", "tracks/JFO14.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "FOPurple"
   },
   { "FORed", "tracks/JFO19.wav",
-    StylePtr<sithDefault>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "FORed"
   },
   { "FOYellow", "tracks/JFO7.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "FOYellow"
   },
@@ -140,15 +150,25 @@ Preset blade[] = {
 };
 
 Preset krBlade[] = {
-  { "Luke_ESB", "Luke_ESB/tracks/LvsV.wav",
+  { "Royalty", "Royalty/tracks/track1.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<chassisOff>(), "Luke_ESB"
+    StylePtr<chassisOff>(), "royalty"
   },
   { "Luke_RoTJ", "Luke_RoTJ/tracks/Final_Duel.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(), "Luke_RoTJ"
+  },
+  { "Grumpy_Uncle", "Grumpy_Uncle/tracks/track3.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(), "grumpy uncle"
+  },
+  { "Luke_ESB", "Luke_ESB/tracks/LvsV.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(), "Luke_ESB"
   },
   { "ReFLEX_BEN", "ReFLEX_BEN/tracks/Ben_vs_Knights.wav",
     StylePtr<mainBladeStyle>(),
@@ -201,48 +221,48 @@ Preset krBlade[] = {
     StylePtr<chassisOff>(), "Senate Majority V2"
   },
   { "FOBlue", "tracks/JFO1.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(), "FOBlue"
   },
   { "FOCyan", "tracks/JFO2.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(), "FOCyan"
   },
   { "FOGreen", "tracks/JFO6.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(), "FOGreen"
   },
   { "FOIndigo", "tracks/JFO8.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(), "FOIndigo"
   },
   { "FOMagenta", "tracks/JFO4.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(), "FOMagenta"
   },
   { "FOOrange", "tracks/JFO3.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(), "FOOrange"
   },
   { "FOPurple", "tracks/JFO14.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(), "FOPurple"
   },
   { "FORed", "tracks/JFO19.wav",
-    StylePtr<sithDefault>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(), "FORed"
   },
   { "FOYellow", "tracks/JFO7.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(), "FOYellow"
   },
   { "EtaanCrystal", "tracks/JF011.wav",
@@ -253,15 +273,25 @@ Preset krBlade[] = {
 };
 
 Preset chassis[] = {
-  { "Luke_ESB", "Luke_ESB/tracks/LvsV.wav",
+  { "Royalty", "Royalty/tracks/track1.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "Luke_ESB"
+    StylePtr<mainBladeStyle>(), "royalty"
   },
   { "Luke_RoTJ", "Luke_RoTJ/tracks/Final_Duel.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(), "Luke_RoTJ"
+  },
+  { "Grumpy_Uncle", "Grumpy_Uncle/tracks/track3.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(), "grumpy uncle"
+  },
+  { "Luke_ESB", "Luke_ESB/tracks/LvsV.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(), "Luke_ESB"
   },
   { "ReFLEX_BEN", "ReFLEX_BEN/tracks/Ben_vs_Knights.wav",
     StylePtr<mainBladeStyle>(),
@@ -314,49 +344,49 @@ Preset chassis[] = {
     StylePtr<senateMajority>(), "Senate Majority V2"
   },
   { "FOBlue", "tracks/JFO1.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOBlue"
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOBlue"
   },
   { "FOCyan", "tracks/JFO2.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOCyan"
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOCyan"
   },
   { "FOGreen", "tracks/JFO6.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOGreen"
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOGreen"
   },
   { "FOIndigo", "tracks/JFO8.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOIndigo"
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOIndigo"
   },
   { "FOMagenta", "tracks/JFO4.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOMagenta"
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOMagenta"
   },
   { "FOOrange", "tracks/JFO3.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOOrange"
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOOrange"
   },
   { "FOPurple", "tracks/JFO14.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOPurple"
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOPurple"
   },
   { "FORed", "tracks/JFO19.wav",
-    StylePtr<sithDefault>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<sithDefault>(), "FORed"
   },
   { "FOYellow", "tracks/JFO7.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(), "FOYellow"
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOYellow"
   },
   { "EtaanCrystal", "tracks/JF011.wav",
     StylePtr<colorRun>(),

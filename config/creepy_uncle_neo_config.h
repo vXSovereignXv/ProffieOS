@@ -16,7 +16,7 @@ const unsigned int maxLedsPerStrip = 396;
 #define ORIENTATION ORIENTATION_USB_TOWARDS_BLADE
 #define IDLE_OFF_TIME 60 * 5 * 1000 //5 minutes
 #define KEEP_SAVEFILES_WHEN_PROGRAMMING
-#define DISABLE_DIAGNOSTIC_COMMANDS
+//#define DISABLE_DIAGNOSTIC_COMMANDS
 #endif
 
 #ifdef CONFIG_PROP
@@ -48,6 +48,12 @@ Preset blade[] = {
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "esb graflex"
   },
+  { "Royalty", "Royalty/tracks/track1.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(),
+    StylePtr<accentAlternate>(), "royalty"
+  },
   { "ReFLEX_BEN", "ReFLEX_BEN/tracks/Ben_vs_Knights.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
@@ -84,6 +90,18 @@ Preset blade[] = {
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fulcrum"
   },
+  { "Commander_Tano", "Commander_Tano/tracks/track2.wav",
+    StylePtr<fulcrumDefault>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(),
+    StylePtr<accentAlternate>(), "commander tano"
+  },
+  { "The_JEDI", "The_JEDI/tracks/track1.wav",
+    StylePtr<fulcrumDefault>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(),
+    StylePtr<accentAlternate>(), "the jedi"
+  },
   { "Hero_Obi", "Hero_Obi/tracks/BattleOfHeros.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<chassisOff>(),
@@ -102,56 +120,80 @@ Preset blade[] = {
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "destiny"
   },
-  { "FOBlue", "tracks/JFO1.wav",
+  { "Blind_Cowboy", "Blind_Cowboy/tracks/track2.wav",
     StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(),
+    StylePtr<accentAlternate>(), "blind cowboy"
+  },
+  { "Staple_Sword", "Staple_Sword/tracks/track1.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(),
+    StylePtr<accentAlternate>(), "staple sword"
+  },
+  { "Dyad_Kylo", "Dyad_Kylo/tracks/track2.wav",
+    StylePtr<unstableStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(),
+    StylePtr<accentAlternate>(), "dyad kylo"
+  },
+  { "Dyad_Rey", "Dyad_Rey/tracks/track4.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(),
+    StylePtr<accentAlternate>(), "dyad rey"
+  },
+  { "FOBlue", "tracks/JFO1.wav",
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fo blue"
   },
   { "FOCyan", "tracks/JFO2.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fo cyan"
   },
   { "FOGreen", "tracks/JFO6.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fo green"
   },
   { "FOIndigo", "tracks/JFO8.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fo indigo"
   },
   { "FOMagenta", "tracks/JFO4.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fo magenta"
   },
   { "FOOrange", "tracks/JFO3.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fo orange"
   },
   { "FOPurple", "tracks/JFO14.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fo purple"
   },
   { "FORed", "tracks/JFO19.wav",
-    StylePtr<sithDefault>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fo red"
   },
   { "FOYellow", "tracks/JFO7.wav",
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fo yellow"
@@ -161,6 +203,18 @@ Preset blade[] = {
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "etaan"
+  },
+  { "Ghost_Sucker", "Ghost_Sucker/tracks/track5.wav",
+    StylePtr<ghostSucker>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(),
+    StylePtr<accentAlternate>(), "ghost sucker"
+  },
+  { "XMAS", "XMAS/tracks/track1.wav",
+    StylePtr<xmas>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(),
+    StylePtr<accentAlternate>(), "x-mas"
   }
 };
 
@@ -183,6 +237,12 @@ Preset krBlade[] = {
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "esb graflex"
   },
+  { "Royalty", "Royalty/tracks/track1.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<accentAlternate>(), "royalty"
+  },
   { "ReFLEX_BEN", "ReFLEX_BEN/tracks/Ben_vs_Knights.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
@@ -219,6 +279,18 @@ Preset krBlade[] = {
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fulcrum"
   },
+  { "Commander_Tano", "Commander_Tano/tracks/track2.wav",
+    StylePtr<fulcrumDefault>(),
+    StylePtr<fulcrumDefault>(),
+    StylePtr<chassisOff>(),
+    StylePtr<accentAlternate>(), "commander tano"
+  },
+  { "The_JEDI", "The_JEDI/tracks/track1.wav",
+    StylePtr<fulcrumDefault>(),
+    StylePtr<fulcrumDefault>(),
+    StylePtr<chassisOff>(),
+    StylePtr<accentAlternate>(), "the jedi"
+  },
   { "Hero_Obi", "Hero_Obi/tracks/BattleOfHeros.wav",
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
@@ -237,57 +309,81 @@ Preset krBlade[] = {
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "destiny"
   },
+  { "Blind_Cowboy", "Blind_Cowboy/tracks/track2.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<accentAlternate>(), "blind cowboy"
+  },
+  { "Staple_Sword", "Staple_Sword/tracks/track1.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<accentAlternate>(), "staple sword"
+  },
+  { "Dyad_Kylo", "Dyad_Kylo/tracks/track2.wav",
+    StylePtr<unstableStyle>(),
+    StylePtr<unstableStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<accentAlternate>(), "dyad kylo"
+  },
+  { "Dyad_Rey", "Dyad_Rey/tracks/track4.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<accentAlternate>(), "dyad rey"
+  },
   { "FOBlue", "tracks/JFO1.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fo blue"
   },
   { "FOCyan", "tracks/JFO2.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fo cyan"
   },
   { "FOGreen", "tracks/JFO6.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fo green"
   },
   { "FOIndigo", "tracks/JFO8.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fo indigo"
   },
   { "FOMagenta", "tracks/JFO4.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fo magenta"
   },
   { "FOOrange", "tracks/JFO3.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fo orange"
   },
   { "FOPurple", "tracks/JFO14.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fo purple"
   },
   { "FORed", "tracks/JFO19.wav",
-    StylePtr<sithDefault>(),
-    StylePtr<sithDefault>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fo red"
   },
   { "FOYellow", "tracks/JFO7.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "fo yellow"
   },
@@ -296,141 +392,207 @@ Preset krBlade[] = {
     StylePtr<colorRun>(),
     StylePtr<chassisOff>(),
     StylePtr<accentAlternate>(), "etaan"
+  },
+  { "Ghost_Sucker", "Ghost_Sucker/tracks/track5.wav",
+    StylePtr<ghostSucker>(),
+    StylePtr<ghostSucker>(),
+    StylePtr<chassisOff>(),
+    StylePtr<accentAlternate>(), "ghost sucker"
+  },
+  { "XMAS", "XMAS/tracks/track1.wav",
+    StylePtr<xmas>(),
+    StylePtr<xmas>(),
+    StylePtr<chassisOff>(),
+    StylePtr<accentAlternate>(), "x-mas"
   }
 };
 
 Preset chassis[] = {
   { "Luke_RoTJ", "Luke_RoTJ/tracks/Final_Duel.wav",
+    StylePtr<accentBlink>(),
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<accentBlink>(), "the return"
+    StylePtr<mainBladeStyle>(), "the return"
   },
   { "Grumpy_Uncle", "Grumpy_Uncle/tracks/track3.wav",
+    StylePtr<accentBlink>(),
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<accentBlink>(), "grumpy uncle"
+    StylePtr<mainBladeStyle>(), "grumpy uncle"
   },
   { "Luke_ESB", "Luke_ESB/tracks/LvsV.wav",
+    StylePtr<accentAlternate>(),
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(), "esb graflex"
+  },
+  { "Royalty", "Royalty/tracks/track1.wav",
+    StylePtr<accentAlternate>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "esb graflex"
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(), "royalty"
   },
   { "ReFLEX_BEN", "ReFLEX_BEN/tracks/Ben_vs_Knights.wav",
+    StylePtr<accentAlternate>(),
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "reflex ben"
+    StylePtr<mainBladeStyle>(), "reflex ben"
   },
   { "ReFLEX_REY", "ReFLEX_REY/tracks/Training_Course_Music.wav",
+    StylePtr<accentAlternate>(),
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "reflex rey"
+    StylePtr<mainBladeStyle>(), "reflex rey"
   },
   { "Unstable", "tracks/KyloTheme.wav",
+    StylePtr<accentAlternate>(),
     StylePtr<unstableStyle>(),
     StylePtr<unstableStyle>(),
-    StylePtr<unstableStyle>(),
-    StylePtr<accentAlternate>(), "unstable"
+    StylePtr<unstableStyle>(), "unstable"
   },
   { "Unstable_v2", "Unstable_v2/tracks/track3.wav",
+    StylePtr<accentAlternate>(),
     StylePtr<unstableStyle>(),
     StylePtr<unstableStyle>(),
-    StylePtr<unstableStyle>(),
-    StylePtr<accentAlternate>(), "unstable2"
+    StylePtr<unstableStyle>(), "unstable2"
   },
   { "FOSister", "tracks/JFO12.wav",
+    StylePtr<accentAlternate>(),
     StylePtr<sithUnstableSwing>(),
     StylePtr<sithUnstableSwing>(),
-    StylePtr<sithUnstableSwing>(),
-    StylePtr<accentAlternate>(), "2nd sister"
+    StylePtr<sithUnstableSwing>(), "2nd sister"
   },
   { "Fulcrum", "fulcrum/tracks/track3.wav",
+    StylePtr<accentAlternate>(),
     StylePtr<fulcrumDefault>(),
     StylePtr<fulcrumDefault>(),
+    StylePtr<fulcrumDefault>(), "fulcrum"
+  },
+  { "Commander_Tano", "Commander_Tano/tracks/track2.wav",
+    StylePtr<accentAlternate>(),
     StylePtr<fulcrumDefault>(),
-    StylePtr<accentAlternate>(), "fulcrum"
+    StylePtr<fulcrumDefault>(),
+    StylePtr<fulcrumDefault>(), "commander tano"
+  },
+  { "The_JEDI", "The_JEDI/tracks/track1.wav",
+    StylePtr<accentAlternate>(),
+    StylePtr<fulcrumDefault>(),
+    StylePtr<fulcrumDefault>(),
+    StylePtr<fulcrumDefault>(), "the jedi"
   },
   { "Hero_Obi", "Hero_Obi/tracks/BattleOfHeros.wav",
+    StylePtr<accentAlternate>(),
     StylePtr<mainBladeStyle>(),
     StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "hero obi"
+    StylePtr<mainBladeStyle>(), "hero obi"
   },
   { "ClassicVillian", "Luke_ESB/tracks/LvsV.wav",
+    StylePtr<accentAlternate>(),
     StylePtr<sithDefault>(),
     StylePtr<sithDefault>(),
-    StylePtr<sithDefault>(),
-    StylePtr<accentAlternate>(), "vader"
+    StylePtr<sithDefault>(), "vader"
   },
   { "Scavengers_Destiny", "Scavengers_Destiny/tracks/track4.wav",
+    StylePtr<accentAlternate>(),
     StylePtr<reyDefault>(),
     StylePtr<reyDefault>(),
-    StylePtr<reyDefault>(),
-    StylePtr<accentAlternate>(), "destiny"
+    StylePtr<reyDefault>(), "destiny"
+  },
+  { "Blind_Cowboy", "Blind_Cowboy/tracks/track2.wav",
+    StylePtr<accentAlternate>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(), "blind cowboy"
+  },
+  { "Staple_Sword", "Staple_Sword/tracks/track1.wav",
+    StylePtr<accentAlternate>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(), "staple sword"
+  },
+  { "Dyad_Kylo", "Dyad_Kylo/tracks/track2.wav",
+    StylePtr<accentAlternate>(),
+    StylePtr<unstableStyle>(),
+    StylePtr<unstableStyle>(),
+    StylePtr<unstableStyle>(), "dyad kylo"
+  },
+  { "Dyad_Rey", "Dyad_Rey/tracks/track4.wav",
+    StylePtr<accentAlternate>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(), "dyad rey"
   },
   { "FOBlue", "tracks/JFO1.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "fo blue"
+    StylePtr<accentAlternate>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "fo blue"
   },
   { "FOCyan", "tracks/JFO2.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "fo cyan"
+    StylePtr<accentAlternate>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "fo cyan"
   },
   { "FOGreen", "tracks/JFO6.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "fo green"
+    StylePtr<accentAlternate>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "fo green"
   },
   { "FOIndigo", "tracks/JFO8.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "fo indigo"
+    StylePtr<accentAlternate>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "fo indigo"
   },
   { "FOMagenta", "tracks/JFO4.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "fo magenta"
+    StylePtr<accentAlternate>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "fo magenta"
   },
   { "FOOrange", "tracks/JFO3.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "fo orange"
+    StylePtr<accentAlternate>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "fo orange"
   },
   { "FOPurple", "tracks/JFO14.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "fo purple"
+    StylePtr<accentAlternate>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "fo purple"
   },
   { "FORed", "tracks/JFO19.wav",
-    StylePtr<sithDefault>(),
-    StylePtr<sithDefault>(),
-    StylePtr<sithDefault>(),
-    StylePtr<accentAlternate>(), "fo red"
+    StylePtr<accentAlternate>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "fo red"
   },
   { "FOYellow", "tracks/JFO7.wav",
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<mainBladeStyle>(),
-    StylePtr<accentAlternate>(), "fo yellow"
+    StylePtr<accentAlternate>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "fo yellow"
   },
   { "EtaanCrystal", "tracks/JF011.wav",
+    StylePtr<accentAlternate>(),
     StylePtr<colorRun>(),
     StylePtr<colorRun>(),
-    StylePtr<colorRun>(),
-    StylePtr<accentAlternate>(), "etaan"
+    StylePtr<colorRun>(), "etaan"
+  },
+  { "Ghost_Sucker", "Ghost_Sucker/tracks/track5.wav",
+    StylePtr<accentAlternate>(),
+    StylePtr<ghostSucker>(),
+    StylePtr<ghostSucker>(),
+    StylePtr<ghostSucker>(), "ghost sucker"
+  },
+  { "XMAS", "XMAS/tracks/track1.wav",
+    StylePtr<accentAlternate>(),
+    StylePtr<xmas>(),
+    StylePtr<xmas>(),
+    StylePtr<xmas>(), "x-mas"
   }
 };
 
@@ -460,10 +622,10 @@ BladeConfig blades[] = {
     WS281XBladePtr<5, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
     SimpleBladePtr<CH1LED, CH2LED, NoLED, NoLED, bladePowerPin5, bladePowerPin6, -1, -1>()
   , CONFIGARRAY(krBlade) }, //34.5" KR Blade
-  { NO_BLADE, WS281XBladePtr<124, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
+  { 453.0, SimpleBladePtr<CH1LED, CH2LED, NoLED, NoLED, bladePowerPin5, bladePowerPin6, -1, -1>(),
+    WS281XBladePtr<124, bladePin, Color8::GRBw, PowerPINS<bladePowerPin2, bladePowerPin3>>(),
     SubBlade(0, 4, WS281XBladePtr<6, blade2Pin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>>()), 
-    SubBlade(5, 5, NULL),
-    SimpleBladePtr<CH1LED, CH2LED, NoLED, NoLED, bladePowerPin5, bladePowerPin6, -1, -1>()
+    SubBlade(5, 5, NULL)
   , CONFIGARRAY(chassis) }, //Chassis
 };
 #endif

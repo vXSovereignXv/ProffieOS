@@ -77,6 +77,16 @@ Preset blade[] = {
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "Fulcrum"
   },
+  { "Commander_Tano", "Commander_Tano/tracks/track2.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "commander tano"
+  },
+  { "The_JEDI", "The_JEDI/tracks/track1.wav",
+    StylePtr<fulcrumDefault>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "the jedi"
+  },
   { "ClassicVillian", "Luke_ESB/tracks/LvsV.wav",
     StylePtr<sithDefault>(),
     StylePtr<chassisOff>(),
@@ -87,15 +97,90 @@ Preset blade[] = {
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "Scavengers_Destiny"
   },
+  { "Blind_Cowboy", "Blind_Cowboy/tracks/track2.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "blind cowboy"
+  },
+  { "Staple_Sword", "Staple_Sword/tracks/track1.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "staple sword"
+  },
+  { "Dyad_Kylo", "Dyad_Kylo/tracks/track2.wav",
+    StylePtr<unstableStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "dyad kylo"
+  },
+  { "Dyad_Rey", "Dyad_Rey/tracks/track4.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "dyad rey"
+  },
   { "Senate Majority V2", "Senate Majority V2/tracks/Palpatheme.wav",
     StylePtr<senateMajority>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "Senate Majority V2"
   },
+  { "FOBlue", "tracks/JFO1.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "FOBlue"
+  },
+  { "FOCyan", "tracks/JFO2.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "FOCyan"
+  },
+  { "FOGreen", "tracks/JFO6.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "FOGreen"
+  },
+  { "FOIndigo", "tracks/JFO8.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "FOIndigo"
+  },
+  { "FOMagenta", "tracks/JFO4.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "FOMagenta"
+  },
+  { "FOOrange", "tracks/JFO3.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "FOOrange"
+  },
+  { "FOPurple", "tracks/JFO14.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "FOPurple"
+  },
+  { "FORed", "tracks/JFO19.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "FORed"
+  },
+  { "FOYellow", "tracks/JFO7.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "FOYellow"
+  },
   { "EtaanCrystal", "tracks/JF011.wav",
     StylePtr<colorRun>(),
     StylePtr<chassisOff>(),
     StylePtr<chassisOff>(), "EtaanCrystal"
+  },
+  { "Ghost_Sucker", "Ghost_Sucker/tracks/track5.wav",
+    StylePtr<ghostSucker>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "ghost sucker"
+  },
+  { "XMAS", "XMAS/tracks/track1.wav",
+    StylePtr<xmas>(),
+    StylePtr<chassisOff>(),
+    StylePtr<chassisOff>(), "x-mas"
   }
 };
 
@@ -150,6 +235,16 @@ Preset krBlade[] = {
     StylePtr<fulcrumDefault>(),
     StylePtr<chassisOff>(), "Fulcrum"
   },
+  { "Commander_Tano", "Commander_Tano/tracks/track2.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(), "commander tano"
+  },
+  { "The_JEDI", "The_JEDI/tracks/track1.wav",
+    StylePtr<fulcrumDefault>(),
+    StylePtr<fulcrumDefault>(),
+    StylePtr<chassisOff>(), "the jedi"
+  },
   { "ClassicVillian", "Luke_ESB/tracks/LvsV.wav",
     StylePtr<sithDefault>(),
     StylePtr<sithDefault>(),
@@ -160,15 +255,90 @@ Preset krBlade[] = {
     StylePtr<reyDefault>(),
     StylePtr<chassisOff>(), "Scavengers_Destiny"
   },
+  { "Blind_Cowboy", "Blind_Cowboy/tracks/track2.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(), "blind cowboy"
+  },
+  { "Staple_Sword", "Staple_Sword/tracks/track1.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(), "staple sword"
+  },
+  { "Dyad_Kylo", "Dyad_Kylo/tracks/track2.wav",
+    StylePtr<unstableStyle>(),
+    StylePtr<unstableStyle>(),
+    StylePtr<chassisOff>(), "dyad kylo"
+  },
+  { "Dyad_Rey", "Dyad_Rey/tracks/track4.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<chassisOff>(), "dyad rey"
+  },
   { "Senate Majority V2", "Senate Majority V2/tracks/Palpatheme.wav",
     StylePtr<senateMajority>(),
     StylePtr<senateMajority>(),
     StylePtr<chassisOff>(), "Senate Majority V2"
   },
+  { "FOBlue", "tracks/JFO1.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<chassisOff>(), "FOBlue"
+  },
+  { "FOCyan", "tracks/JFO2.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<chassisOff>(), "FOCyan"
+  },
+  { "FOGreen", "tracks/JFO6.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<chassisOff>(), "FOGreen"
+  },
+  { "FOIndigo", "tracks/JFO8.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<chassisOff>(), "FOIndigo"
+  },
+  { "FOMagenta", "tracks/JFO4.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<chassisOff>(), "FOMagenta"
+  },
+  { "FOOrange", "tracks/JFO3.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<chassisOff>(), "FOOrange"
+  },
+  { "FOPurple", "tracks/JFO14.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<chassisOff>(), "FOPurple"
+  },
+  { "FORed", "tracks/JFO19.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<chassisOff>(), "FORed"
+  },
+  { "FOYellow", "tracks/JFO7.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<chassisOff>(), "FOYellow"
+  },
   { "EtaanCrystal", "tracks/JF011.wav",
     StylePtr<colorRun>(),
     StylePtr<colorRun>(),
     StylePtr<chassisOff>(), "EtaanCrystal"
+  },
+  { "Ghost_Sucker", "Ghost_Sucker/tracks/track5.wav",
+    StylePtr<ghostSucker>(),
+    StylePtr<ghostSucker>(),
+    StylePtr<chassisOff>(), "ghost sucker"
+  },
+  { "XMAS", "XMAS/tracks/track1.wav",
+    StylePtr<xmas>(),
+    StylePtr<xmas>(),
+    StylePtr<chassisOff>(), "x-mas"
   }
 };
 
@@ -223,6 +393,16 @@ Preset chassis[] = {
     StylePtr<fulcrumDefault>(),
     StylePtr<fulcrumDefault>(), "Fulcrum"
   },
+  { "Commander_Tano", "Commander_Tano/tracks/track2.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(), "commander tano"
+  },
+  { "The_JEDI", "The_JEDI/tracks/track1.wav",
+    StylePtr<fulcrumDefault>(),
+    StylePtr<fulcrumDefault>(),
+    StylePtr<fulcrumDefault>(), "the jedi"
+  },
   { "ClassicVillian", "Luke_ESB/tracks/LvsV.wav",
     StylePtr<sithDefault>(),
     StylePtr<sithDefault>(),
@@ -233,15 +413,90 @@ Preset chassis[] = {
     StylePtr<reyDefault>(),
     StylePtr<reyDefault>(), "Scavengers_Destiny"
   },
+  { "Blind_Cowboy", "Blind_Cowboy/tracks/track2.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(), "blind cowboy"
+  },
+  { "Staple_Sword", "Staple_Sword/tracks/track1.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(), "staple sword"
+  },
+  { "Dyad_Kylo", "Dyad_Kylo/tracks/track2.wav",
+    StylePtr<unstableStyle>(),
+    StylePtr<unstableStyle>(),
+    StylePtr<unstableStyle>(), "dyad kylo"
+  },
+  { "Dyad_Rey", "Dyad_Rey/tracks/track4.wav",
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(),
+    StylePtr<mainBladeStyle>(), "dyad rey"
+  },
   { "Senate Majority V2", "Senate Majority V2/tracks/Palpatheme.wav",
     StylePtr<senateMajority>(),
     StylePtr<senateMajority>(),
     StylePtr<senateMajority>(), "Senate Majority V2"
   },
+  { "FOBlue", "tracks/JFO1.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOBlue"
+  },
+  { "FOCyan", "tracks/JFO2.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOCyan"
+  },
+  { "FOGreen", "tracks/JFO6.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOGreen"
+  },
+  { "FOIndigo", "tracks/JFO8.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOIndigo"
+  },
+  { "FOMagenta", "tracks/JFO4.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOMagenta"
+  },
+  { "FOOrange", "tracks/JFO3.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOOrange"
+  },
+  { "FOPurple", "tracks/JFO14.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOPurple"
+  },
+  { "FORed", "tracks/JFO19.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FORed"
+  },
+  { "FOYellow", "tracks/JFO7.wav",
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(),
+    StylePtr<calBladeStyle>(), "FOYellow"
+  },
   { "EtaanCrystal", "tracks/JF011.wav",
     StylePtr<colorRun>(),
     StylePtr<colorRun>(),
     StylePtr<colorRun>(), "EtaanCrystal"
+  },
+  { "Ghost_Sucker", "Ghost_Sucker/tracks/track5.wav",
+    StylePtr<ghostSucker>(),
+    StylePtr<ghostSucker>(),
+    StylePtr<ghostSucker>(), "ghost sucker"
+  },
+  { "XMAS", "XMAS/tracks/track1.wav",
+    StylePtr<xmas>(),
+    StylePtr<xmas>(),
+    StylePtr<xmas>(), "x-mas"
   }
 };
 
