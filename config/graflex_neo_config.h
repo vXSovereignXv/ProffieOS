@@ -15,7 +15,7 @@ const unsigned int maxLedsPerStrip = 396;
 #define BLADE_DETECT_PIN 8
 #define IDLE_OFF_TIME 60 * 5 * 1000 //5 minutes
 #define KEEP_SAVEFILES_WHEN_PROGRAMMING
-//#define DISABLE_DIAGNOSTIC_COMMANDS
+#define DISABLE_DIAGNOSTIC_COMMANDS
 #endif
 
 #ifdef CONFIG_PROP

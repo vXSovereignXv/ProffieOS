@@ -365,7 +365,7 @@ public:
   
 // Power Save 1 Button
 #if NUM_BUTTONS == 1
-  case EVENTID(BUTTON_POWER, EVENT_THIRD_CLICK_SHORT, MODE_ON):
+  case EVENTID(BUTTON_POWER, EVENT_THIRD_SAVED_CLICK_SHORT, MODE_ON):
     SaberBase::DoEffect(EFFECT_POWERSAVE, 0);
     return true;
 #endif

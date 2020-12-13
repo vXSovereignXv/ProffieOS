@@ -1,7 +1,7 @@
 // #define SA22C_STAB_ON
-#define SA22C_SWING_ON
+// #define SA22C_SWING_ON
 // #define SA22C_TWIST_ON
-// #define SA22C_THRUST_ON
+#define SA22C_THRUST_ON
 #define SA22C_TWIST_OFF
 #define SA22C_FORCE_PUSH
 #define SA22C_LOCKUP_DELAY 300
